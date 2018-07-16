@@ -1,8 +1,17 @@
 const identity = (state, action) => {
     switch (action.type) {
         case 'LOGIN':
-            break;
+            return {
+                ...state,
+                'logined': true,
+                'account': action.account,
+                'sex': action.sex,
+                'avatar': action.avatar
+            };
         case 'LOGOUT':
-            break;
+            return {
+                ...state,
+                'logined': false
+            };
     }
 };
