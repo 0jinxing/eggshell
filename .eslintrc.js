@@ -21,10 +21,6 @@ module.exports = {
         "linebreak-style": "off",
         "no-unused-vars": "off",
         "no-console": "off",
-        "quotes": [
-            "error",
-            "single"
-        ],
         "semi": [
             "error",
             "always"
