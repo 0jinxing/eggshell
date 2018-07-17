@@ -1,17 +1,19 @@
-const identity = (state, action) => {
+const identity = (state = {}, action) => {
     switch (action.type) {
         case 'LOGIN':
             return {
-                ...state,
                 'logined': true,
-                'account': action.account,
+                'nickname': action.nickname,
+                'identity': action.identity,
                 'sex': action.sex,
-                'avatar': action.avatar
+                'imgurl': action.imgurl
             };
         case 'LOGOUT':
             return {
-                ...state,
                 'logined': false
             };
+        default: return state;
     }
 };
+
+export default identity;
