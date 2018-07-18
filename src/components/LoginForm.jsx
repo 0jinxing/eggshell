@@ -15,6 +15,12 @@ class LoginForm extends Component {
         };
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.logined) {
+            this.props.history.push('/');
+        }
+    }
+
     // 保留表单的状态
     handleChange = (e) => {
         let newState = {
@@ -28,15 +34,26 @@ class LoginForm extends Component {
         e.preventDefault();
         this.setState({ submit: true });
 
+        let valid = false;
         // 字段校验
         // 邮箱
         if (!this.state.email) this.setState({ emailValiMsg: 'email不能为空' });
         else if (!this.state.email.match(this.emailRegex)) this.setState({ emailValiMsg: 'email格式错误' });
-        else this.setState({ emailValiMsg: '' });
+        else {
+            this.setState({ emailValiMsg: '' });
+            valid = true;
+        }
 
         // 密码
         if (!this.state.password) this.setState({ passwordValidMsg: 'password不能为空' });
-        else this.setState({ passwordValidMsg: '' });
+        else {
+            this.setState({ passwordValidMsg: '' });
+            valid = valid && true;
+        }
+
+        if (valid) {
+            this.props.doLogin(this.state.email, this.state.password);
+        }
     }
 
     // 主要用于设置email字段填写提示
@@ -59,7 +76,7 @@ class LoginForm extends Component {
 
     render() {
         return (
-            <div>
+            <div id='login-form'>
                 <PageHeader>蛋壳登陆</PageHeader>
                 <Row>
                     <Col xs={12} md={6} lg={4}>

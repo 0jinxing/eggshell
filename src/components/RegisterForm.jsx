@@ -58,7 +58,7 @@ class RegisterForm extends Component {
 
     render() {
         return (
-            <div>
+            <div id='register-form'>
                 <PageHeader>蛋壳注册</PageHeader>
                 <Row>
                     <Col xs={12} md={6} lg={4}>
@@ -80,8 +80,8 @@ class RegisterForm extends Component {
                         </form>
                     </Col>
                     <Col xsHidden md={4} lg={4} smHidden mdOffset={1} lgOffset={2}>
+                        <h5>关于蛋壳</h5>
                         <p>
-                            <h5>关于蛋壳</h5>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas illum quas ad alias cumque fugit deleniti et rem tempora facilis? Quis recusandae assumenda quibusdam quod, explicabo iusto vero. Velit, quos!
                         </p>
                     </Col>

@@ -6,6 +6,7 @@ import reduxer from './reduxers';
 import { fetchLogin } from './actions/identity';
 import { createLogger } from 'redux-logger';
 import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
 
 import App from './App';
 
@@ -17,7 +18,11 @@ const store = createStore(
         thunkMiddleware
     )
 );
-store.dispatch(fetchLogin('321', '321'));
+// store.dispatch(fetchLogin('321', '321'));
 
-ReactDOM.render(<App msg='gg' regex='^\d*$' name='name' />, document.getElementById('root'));
+ReactDOM.render((
+    <Provider store={store}>
+        <App />
+    </Provider>
+), document.getElementById('root'));
 registerServiceWorker();
