@@ -1,8 +1,12 @@
-import React from '../../../AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/react';
-import SearchBar from './SearchBar';
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import IndexLayout from './components/IndexLayout';
+import './App.css';
 
 const App = () => (
-    <SearchBar />
+    <BrowserRouter>
+        <IndexLayout />
+    </BrowserRouter>
 );
 
 export default App;

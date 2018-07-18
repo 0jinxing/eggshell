@@ -1,0 +1,4 @@
+/* 友好的表单校验 */
+.has-success .help-block {
+    display: none;
+}
