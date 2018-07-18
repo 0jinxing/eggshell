@@ -5,7 +5,6 @@ import RegisterForm from './RegisterForm';
 import IdentityNavbar from '../containers/IdentityNavbar';
 
 class IndexLayout extends Component {
-
     render() {
         return (
             <div id='index-layout'>

@@ -63,7 +63,7 @@ class LoginForm extends Component {
     render() {
         return (
             <div id='login-form'>
-                <h3 className='mt-4 mb-4'>蛋壳登陆</h3>
+                <h3 className='mt-4 mb-4 font-weight-light border-bottom p-2'>蛋壳登陆</h3>
                 <div className='row'>
                     <div className='col-md'>
                         <form onSubmit={this.handleSubmit}>

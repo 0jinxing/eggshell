@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import logo from '../assets/brand/eggshell.png';
 
 class IdentityNavbar extends Component {
+
+    handleSearch(e) {
+        e.preventDefault();
+    }
 
     render() {
         let identityEl = this.props.logined && (
@@ -30,17 +35,17 @@ class IdentityNavbar extends Component {
                     </li>
                 </ul>);
         return (
-            <nav id="identity-navbar" className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav id="identity-navbar" className="navbar navbar-expand-lg navbar-light bg-light shadow-sm mb-5 bg-white rounded">
                 <div className='container'>
                     <NavLink className="navbar-brand" to='/'>
-                        <img src="../assets/brand/eggshell.png" width="30" height="30" className="d-inline-block align-top" alt="" />
+                        <img src={logo} height="30" className="d-inline-block align-top mr-2" alt="" />
                         蛋壳
                     </NavLink>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div id="navbar-menu" className="collapse navbar-collapse">
-                        <form className="form-inline my-2 my-lg-0 ml-4 mr-4 ml-sm-0 mr-sm-0">
+                        <form className="form-inline mx-4 d-none d-lg-inline" onSubmit={this.handleSearch}>
                             <input className="form-control mr-sm-2" type="search" placeholder="Search" />
                             <button className="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
                         </form>
@@ -61,7 +66,6 @@ class IdentityNavbar extends Component {
             </nav>
         );
     }
-
 }
 
 export default IdentityNavbar;
