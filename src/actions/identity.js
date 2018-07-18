@@ -8,6 +8,7 @@ export const requestLoginMsg = () => ({
 // 登陆成功
 export const loginSuccess = (email, data) => ({
     type: 'LOGIN_SUCCESS',
+    logined: true,
     email,
     ...data
 });

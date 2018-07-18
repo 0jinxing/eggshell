@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { FormGroup, ControlLabel, FormControl, HelpBlock, Row, Col, PageHeader, Button, InputGroup } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
 
-class LoginForm extends Component {
+class RegisterForm extends Component {
 
     constructor(props) {
         super(props);
@@ -60,7 +59,7 @@ class LoginForm extends Component {
     render() {
         return (
             <div>
-                <PageHeader>蛋壳登陆</PageHeader>
+                <PageHeader>蛋壳注册</PageHeader>
                 <Row>
                     <Col xs={12} md={6} lg={4}>
                         <form onSubmit={this.handleSubmit}>
@@ -77,12 +76,14 @@ class LoginForm extends Component {
                                 <FormControl name='password' type='password' placeholder='输入您的密码' onChange={this.handleChange} />
                                 <HelpBlock>{this.state.passwordValidMsg}</HelpBlock>
                             </FormGroup>
-                            <Button type="submit">登陆</Button>
+                            <Button type="submit">注册</Button>
                         </form>
                     </Col>
                     <Col xsHidden md={4} lg={4} smHidden mdOffset={1} lgOffset={2}>
-                        <p>还没有蛋壳账号，<NavLink to='register'>马上注册</NavLink></p>
-                        <p>稍后再登陆，<NavLink to='/'>返回首页</NavLink></p>
+                        <p>
+                            <h5>关于蛋壳</h5>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas illum quas ad alias cumque fugit deleniti et rem tempora facilis? Quis recusandae assumenda quibusdam quod, explicabo iusto vero. Velit, quos!
+                        </p>
                     </Col>
                 </Row>
             </div>
@@ -90,4 +91,4 @@ class LoginForm extends Component {
     }
 }
 
-export default LoginForm;
+export default RegisterForm;

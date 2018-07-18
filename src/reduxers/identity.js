@@ -1,6 +1,6 @@
 const identity = (state = {}, action) => {
     switch (action.type) {
-        case 'LOGIN':
+        case 'LOGIN_SUCCESS':
             return {
                 'logined': true,
                 'nickname': action.nickname,
