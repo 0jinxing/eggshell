@@ -1,35 +1,35 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
 
 class IdentityNavbar extends Component {
 
     render() {
         let identityEl = this.props.logined && (
             <Nav pullRight>
-                <LinkContainer to='/user'>
-                    <NavItem href="#">
+                <li>
+                    <NavLink to='/user'>
                         {this.props.nickname}
-                    </NavItem>
-                </LinkContainer>
-                <LinkContainer to='/logout'>
-                    <NavItem href="#">
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to='/logout'>
                         退出
-                    </NavItem>
-                </LinkContainer>
+                    </NavLink>
+                </li>
             </Nav>) || (
-                <Nav pullRight>
-                    <LinkContainer to='/login'>
-                        <NavItem href="#">
-                            登陆
-                 </NavItem>
-                    </LinkContainer>
-                    <LinkContainer to='/register'>
-                        <NavItem href="#">
-                            注册
-                </NavItem>
-                    </LinkContainer>
-                </Nav>);
+            <Nav pullRight>
+                <li>
+                    <NavLink to='/login'>
+                        登陆
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to='/register'>
+                        注册
+                    </NavLink>
+                </li>
+            </Nav>);
 
         return (
             <Navbar inverse collapseOnSelect id='identity-navbar'>

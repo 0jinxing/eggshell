@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Navbar, NavDropdown, MenuItem, Nav, NavItem, Grid } from 'react-bootstrap';
 import { Route } from 'react-router-dom';
-import { LinkContainer } from 'react-router-bootstrap';
 import LoginForm from '../containers/LoginForm';
 import RegisterForm from './RegisterForm';
 import IdentityNavbar from '../containers/IdentityNavbar';
