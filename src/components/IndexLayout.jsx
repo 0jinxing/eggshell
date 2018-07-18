@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Navbar, NavDropdown, MenuItem, Nav, NavItem, Grid } from 'react-bootstrap';
 import { Route } from 'react-router-dom';
 import LoginForm from '../containers/LoginForm';
 import RegisterForm from './RegisterForm';
@@ -11,10 +10,10 @@ class IndexLayout extends Component {
         return (
             <div id='index-layout'>
                 <IdentityNavbar />
-                <Grid>
+                <div className='container'>
                     <Route path='/login' component={LoginForm} />
                     <Route path='/register' component={RegisterForm} />
-                </Grid>
+                </div>
             </div>
         );
     }
