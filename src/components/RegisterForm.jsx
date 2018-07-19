@@ -9,9 +9,11 @@ class RegisterForm extends Component {
         this.state = {
             email: '',
             password: '',
+            nickname: '',
             submit: false,
-            emailValiMsg: '',
-            passwordValidMsg: ''
+            emailValidMsg: '',
+            passwordValidMsg: '',
+            nicknameValidMsg: ''
         };
     }
 
@@ -38,10 +40,10 @@ class RegisterForm extends Component {
         // 字段校验
         // 邮箱校验
         let emailRegex = /\S+?@\S+?\.\S+$/;
-        if (!this.state.email) this.setState({ emailValiMsg: 'email不能为空' });
-        else if (!this.state.email.match(emailRegex)) this.setState({ emailValiMsg: 'email格式错误' });
+        if (!this.state.email.trim()) this.setState({ emailValidMsg: 'email不能为空' });
+        else if (!this.state.email.match(emailRegex)) this.setState({ emailValidMsg: 'email格式错误' });
         else {
-            this.setState({ emailValiMsg: '' });
+            this.setState({ emailValidMsg: '' });
             valid = true;
         }
 
@@ -52,11 +54,20 @@ class RegisterForm extends Component {
         }
         else {
             this.setState({ passwordValidMsg: '' });
-            valid = valid && true;
+        }
+
+        // 用户名
+        if (!this.state.nickname) {
+            this.setState({ nicknameValidMsg: '用户名不能为空' });
+            valid = false;
+        }
+        else {
+            this.setState({ passwordValidMsg: '' });
         }
 
         if (valid) {
             // TODO: 注册相关
+            this.props.doRegister(this.state.nickname, this.state.email, this.state.password);
         }
     }
 
@@ -68,12 +79,20 @@ class RegisterForm extends Component {
                     <div className='col-md'>
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-group">
+                                <label htmlFor="nickname">昵称</label>
+                                <input name='nickname' id='nickname' className={classnames({
+                                    'form-control': true,
+                                    'is-invalid': !!this.state.nicknameValidMsg
+                                })} type="text" placeholder='输入您的昵称' onChange={this.handleChange} />
+                                <small className='invalid-feedback'>{this.state.nicknameValidMsg}</small>
+                            </div>
+                            <div className="form-group">
                                 <label htmlFor='email'>邮箱</label>
                                 <input className={classnames({
                                     'form-control': true,
-                                    'is-invalid': !!this.state.emailValiMsg,
+                                    'is-invalid': !!this.state.emailValidMsg,
                                 })} id='email' name='email' type='text' placeholder='输入您的邮箱' onChange={this.handleChange} />
-                                <small className='invalid-feedback'>{this.state.emailValiMsg}</small>
+                                <small className='invalid-feedback'>{this.state.emailValidMsg}</small>
                             </div>
                             <div className='form-group'>
                                 <label htmlFor='password'>密码</label>

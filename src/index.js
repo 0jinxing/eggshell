@@ -7,6 +7,7 @@ import { fetchLogin } from './actions/identity';
 import { createLogger } from 'redux-logger';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import { showAlert } from './actions/alert';
 
 import App from './App';
 
@@ -18,11 +19,14 @@ const store = createStore(
         thunkMiddleware
     )
 );
-// store.dispatch(fetchLogin('321', '321'));
+
 
 ReactDOM.render((
     <Provider store={store}>
         <App />
     </Provider>
 ), document.getElementById('root'));
+
+store.dispatch(showAlert('hahahahahahahahahahahahahahahahahahahahahahahahahahaha', 100000, 'success'));
+
 registerServiceWorker();

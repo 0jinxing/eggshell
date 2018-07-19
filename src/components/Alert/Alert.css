@@ -1,0 +1,6 @@
+#fixed-bottom-alert {
+    position: fixed;
+    /* top: 48px; */
+    right: 1rem;
+    top: 1rem;
+}
