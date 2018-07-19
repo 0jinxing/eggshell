@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import QueueAnim from 'rc-queue-anim';
 import './Alert.css';
 
 class Alert extends Component {
+
     static propTypes = {
         title: PropTypes.string,
         message: PropTypes.string,
@@ -13,16 +15,20 @@ class Alert extends Component {
     };
 
     render() {
-        if (this.props.duration && this.props.show) setTimeout(this.props.closeAlert, this.props.duration);
+        if (this.props.duration) setTimeout(this.props.closeAlert, this.props.duration);
         let el = this.props.show && (
-            <div id="fixed-bottom-alert" className={`alert alert-${this.props.level} shadow-sm alert-dismissible show mb-0 `} role="alert">
+            <div key='alert' className={`alert alert-${this.props.level} shadow-sm alert-dismissible show mb-0 `} role="alert">
                 <strong>{this.props.title}</strong>&nbsp;{this.props.message}
                 <button type="button" className="close" aria-label="Close" onClick={this.props.closeAlert}>
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-        ) || '';
-        return el;
+        ) || null;
+        return (
+            <QueueAnim type="right" id="alert">
+                {el}
+            </QueueAnim>
+        );
     }
 }
 

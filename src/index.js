@@ -27,6 +27,4 @@ ReactDOM.render((
     </Provider>
 ), document.getElementById('root'));
 
-store.dispatch(showAlert('hahahahahahahahahahahahahahahahahahahahahahahahahahaha', 100000, 'success'));
-
 registerServiceWorker();

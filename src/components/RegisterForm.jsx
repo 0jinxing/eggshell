@@ -76,7 +76,7 @@ class RegisterForm extends Component {
             <div id='register-form'>
                 <h3 className='mt-4 mb-4 font-weight-light border-bottom p-2'>蛋壳注册</h3>
                 <div className='row'>
-                    <div className='col-md'>
+                    <div className='col-md-4 col-sm-12'>
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-group">
                                 <label htmlFor="nickname">昵称</label>
@@ -105,7 +105,7 @@ class RegisterForm extends Component {
                             <button className="btn btn-info" type="submit">注册</button>
                         </form>
                     </div>
-                    <div className="col-md">
+                    <div className="col-md-4 col-sm-12">
                         <div className='mt-4'>
                             <h4>关于蛋壳</h4>
                             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil tempora voluptates ratione, alias quae odit ab! Ea necessitatibus omnis assumenda, recusandae nihil quod nemo nisi nesciunt beatae maiores distinctio natus?</p>

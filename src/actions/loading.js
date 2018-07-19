@@ -1,8 +1,10 @@
 export const startLoading = (message) => ({
     type: "START_LOADING",
-    message
+    message,
+    show: true
 });
 
 export const endLoading = () => ({
-    type: "END_LOADING"
+    type: "END_LOADING",
+    show: false
 });
