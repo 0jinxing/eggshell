@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { FormGroup, ControlLabel, FormControl, HelpBlock, Row, Col, PageHeader, Button, InputGroup } from 'react-bootstrap';
+import classnames from 'classnames';
+import { NavLink } from 'react-router-dom';
 
 class RegisterForm extends Component {
 
@@ -8,10 +9,18 @@ class RegisterForm extends Component {
         this.state = {
             email: '',
             password: '',
+            nickname: '',
             submit: false,
-            emailValiMsg: '',
-            passwordValidMsg: ''
+            emailValidMsg: '',
+            passwordValidMsg: '',
+            nicknameValidMsg: ''
         };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.logined) {
+            this.props.history.push('/');
+        }
     }
 
     // 保留表单的状态
@@ -27,65 +36,82 @@ class RegisterForm extends Component {
         e.preventDefault();
         this.setState({ submit: true });
 
+        let valid = false;
         // 字段校验
-        // 邮箱
-        if (!this.state.email) this.setState({ emailValiMsg: 'email不能为空' });
-        else if (!this.state.email.match(this.emailRegex)) this.setState({ emailValiMsg: 'email格式错误' });
-        else this.setState({ emailValiMsg: '' });
+        // 邮箱校验
+        let emailRegex = /\S+?@\S+?\.\S+$/;
+        if (!this.state.email.trim()) this.setState({ emailValidMsg: 'email不能为空' });
+        else if (!this.state.email.match(emailRegex)) this.setState({ emailValidMsg: 'email格式错误' });
+        else {
+            this.setState({ emailValidMsg: '' });
+            valid = true;
+        }
 
         // 密码
-        if (!this.state.password) this.setState({ passwordValidMsg: 'password不能为空' });
-        else this.setState({ passwordValidMsg: '' });
-    }
+        if (!this.state.password) {
+            this.setState({ passwordValidMsg: 'password不能为空' });
+            valid = false;
+        }
+        else {
+            this.setState({ passwordValidMsg: '' });
+        }
 
-    // 主要用于设置email字段填写提示
-    handleEmailBlur = () => {
-    }
+        // 用户名
+        if (!this.state.nickname) {
+            this.setState({ nicknameValidMsg: '用户名不能为空' });
+            valid = false;
+        }
+        else {
+            this.setState({ passwordValidMsg: '' });
+        }
 
-    // 邮箱校验
-    emailRegex = /\S+?@\S+?\.\S+$/;
-    getEmailValidationState = () => {
-        if (!this.state.email && this.state.submit) return 'warning';
-        else if (!this.state.email) return null;
-
-        if (!!this.state.email.match(this.emailRegex)) return 'success';
-        else return 'error';
-    }
-
-    getPasswordValidationState = () => {
-        if (!this.state.password && this.state.submit) return 'warning';
+        if (valid) {
+            // TODO: 注册相关
+            this.props.doRegister(this.state.nickname, this.state.email, this.state.password);
+        }
     }
 
     render() {
         return (
-            <div>
-                <PageHeader>蛋壳注册</PageHeader>
-                <Row>
-                    <Col xs={12} md={6} lg={4}>
+            <div id='register-form'>
+                <h3 className='mt-4 mb-4 font-weight-light border-bottom p-2'>蛋壳注册</h3>
+                <div className='row'>
+                    <div className='col-md-4 col-sm-12'>
                         <form onSubmit={this.handleSubmit}>
-                            <FormGroup validationState={this.getEmailValidationState()}>
-                                <ControlLabel>邮箱</ControlLabel>
-                                <InputGroup>
-                                    <FormControl name='email' type='text' placeholder='输入您的邮箱' onChange={this.handleChange} onBlur={this.handleEmailBlur} />
-                                    <InputGroup.Addon>@</InputGroup.Addon>
-                                </InputGroup>
-                                <HelpBlock>{this.state.emailValiMsg}</HelpBlock>
-                            </FormGroup>
-                            <FormGroup validationState={this.getPasswordValidationState()}>
-                                <ControlLabel>密码</ControlLabel>
-                                <FormControl name='password' type='password' placeholder='输入您的密码' onChange={this.handleChange} />
-                                <HelpBlock>{this.state.passwordValidMsg}</HelpBlock>
-                            </FormGroup>
-                            <Button type="submit">注册</Button>
+                            <div className="form-group">
+                                <label htmlFor="nickname">昵称</label>
+                                <input name='nickname' id='nickname' className={classnames({
+                                    'form-control': true,
+                                    'is-invalid': !!this.state.nicknameValidMsg
+                                })} type="text" placeholder='输入您的昵称' onChange={this.handleChange} />
+                                <small className='invalid-feedback'>{this.state.nicknameValidMsg}</small>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor='email'>邮箱</label>
+                                <input className={classnames({
+                                    'form-control': true,
+                                    'is-invalid': !!this.state.emailValidMsg,
+                                })} id='email' name='email' type='text' placeholder='输入您的邮箱' onChange={this.handleChange} />
+                                <small className='invalid-feedback'>{this.state.emailValidMsg}</small>
+                            </div>
+                            <div className='form-group'>
+                                <label htmlFor='password'>密码</label>
+                                <input className={classnames({
+                                    'form-control': true,
+                                    'is-invalid': !!this.state.passwordValidMsg,
+                                })} id='password' name='password' type='password' placeholder='输入您的密码' onChange={this.handleChange} />
+                                <span className="invalid-feedback">{this.state.passwordValidMsg}</span>
+                            </div>
+                            <button className="btn btn-info" type="submit">注册</button>
                         </form>
-                    </Col>
-                    <Col xsHidden md={4} lg={4} smHidden mdOffset={1} lgOffset={2}>
-                        <p>
-                            <h5>关于蛋壳</h5>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas illum quas ad alias cumque fugit deleniti et rem tempora facilis? Quis recusandae assumenda quibusdam quod, explicabo iusto vero. Velit, quos!
-                        </p>
-                    </Col>
-                </Row>
+                    </div>
+                    <div className="col-md-4 col-sm-12">
+                        <div className='mt-4'>
+                            <h4>关于蛋壳</h4>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil tempora voluptates ratione, alias quae odit ab! Ea necessitatibus omnis assumenda, recusandae nihil quod nemo nisi nesciunt beatae maiores distinctio natus?</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }

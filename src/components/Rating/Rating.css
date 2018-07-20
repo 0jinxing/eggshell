@@ -1,0 +1,17 @@
+.rating {
+    font-size: 14px;
+    line-height: 11px;
+}
+
+.rating .star {
+    display: inline-block;
+    vertical-align: top;
+    width: 55px;
+    height: 11px;
+    background: url('../../assets/ic_rating_s.png') no-repeat;
+}
+
+.rating .score {
+    color: #e09015;
+    margin: 0 6px;
+}

@@ -2,15 +2,33 @@ const identity = (state = {}, action) => {
     switch (action.type) {
         case 'LOGIN_SUCCESS':
             return {
-                'logined': true,
-                'nickname': action.nickname,
-                'identity': action.identity,
-                'sex': action.sex,
-                'imgurl': action.imgurl
+                logined: true,
+                ...action
             };
-        case 'LOGOUT':
+        case 'LOGIN_FAIL':
             return {
-                'logined': false
+                logined: false,
+                ...action
+            };
+        case 'REGISTER_SUCCESS':
+            return {
+                ...action,
+                logined: true
+            };
+        case 'REGISTER_FAIL':
+            return {
+                ...action,
+                logined: false,
+            };
+        case 'LOGOUT_SUCCESS':
+            return {
+                ...action,
+                logined: false,
+            };
+        case 'LOGOUT_FAIL':
+            return {
+                ...action,
+                logined: true
             };
         default: return state;
     }

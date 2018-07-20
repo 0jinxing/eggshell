@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormGroup, ControlLabel, FormControl, HelpBlock, Row, Col, PageHeader, Button, InputGroup } from 'react-bootstrap';
+import classnames from 'classnames';
 import { NavLink } from 'react-router-dom';
 
 class LoginForm extends Component {
@@ -15,6 +15,12 @@ class LoginForm extends Component {
         };
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.logined) {
+            this.props.history.push('/');
+        }
+    }
+
     // 保留表单的状态
     handleChange = (e) => {
         let newState = {
@@ -28,63 +34,65 @@ class LoginForm extends Component {
         e.preventDefault();
         this.setState({ submit: true });
 
+        let valid = false;
         // 字段校验
-        // 邮箱
+        // 邮箱校验
+        let emailRegex = /\S+?@\S+?\.\S+$/;
         if (!this.state.email) this.setState({ emailValiMsg: 'email不能为空' });
-        else if (!this.state.email.match(this.emailRegex)) this.setState({ emailValiMsg: 'email格式错误' });
-        else this.setState({ emailValiMsg: '' });
+        else if (!this.state.email.match(emailRegex)) this.setState({ emailValiMsg: 'email格式错误' });
+        else {
+            this.setState({ emailValiMsg: '' });
+            valid = true;
+        }
 
         // 密码
-        if (!this.state.password) this.setState({ passwordValidMsg: 'password不能为空' });
-        else this.setState({ passwordValidMsg: '' });
-    }
+        if (!this.state.password) {
+            this.setState({ passwordValidMsg: 'password不能为空' });
+            valid = false;
+        }
+        else {
+            this.setState({ passwordValidMsg: '' });
+            valid = valid && true;
+        }
 
-    // 主要用于设置email字段填写提示
-    handleEmailBlur = () => {
-    }
-
-    // 邮箱校验
-    emailRegex = /\S+?@\S+?\.\S+$/;
-    getEmailValidationState = () => {
-        if (!this.state.email && this.state.submit) return 'warning';
-        else if (!this.state.email) return null;
-
-        if (!!this.state.email.match(this.emailRegex)) return 'success';
-        else return 'error';
-    }
-
-    getPasswordValidationState = () => {
-        if (!this.state.password && this.state.submit) return 'warning';
+        if (valid) {
+            this.props.doLogin(this.state.email, this.state.password);
+        }
     }
 
     render() {
         return (
-            <div>
-                <PageHeader>蛋壳登陆</PageHeader>
-                <Row>
-                    <Col xs={12} md={6} lg={4}>
+            <div id='login-form'>
+                <h3 className='mt-4 mb-4 font-weight-light border-bottom p-2'>蛋壳登陆</h3>
+                <div className='row'>
+                    <div className='col-md-4 col-sm-12'>
                         <form onSubmit={this.handleSubmit}>
-                            <FormGroup validationState={this.getEmailValidationState()}>
-                                <ControlLabel>邮箱</ControlLabel>
-                                <InputGroup>
-                                    <FormControl name='email' type='text' placeholder='输入您的邮箱' onChange={this.handleChange} onBlur={this.handleEmailBlur} />
-                                    <InputGroup.Addon>@</InputGroup.Addon>
-                                </InputGroup>
-                                <HelpBlock>{this.state.emailValiMsg}</HelpBlock>
-                            </FormGroup>
-                            <FormGroup validationState={this.getPasswordValidationState()}>
-                                <ControlLabel>密码</ControlLabel>
-                                <FormControl name='password' type='password' placeholder='输入您的密码' onChange={this.handleChange} />
-                                <HelpBlock>{this.state.passwordValidMsg}</HelpBlock>
-                            </FormGroup>
-                            <Button type="submit">登陆</Button>
+                            <div className="form-group">
+                                <label htmlFor='email'>邮箱</label>
+                                <input className={classnames({
+                                    'form-control': true,
+                                    'is-invalid': !!this.state.emailValiMsg,
+                                })} id='email' name='email' type='text' placeholder='输入您的邮箱' onChange={this.handleChange} />
+                                <small className='invalid-feedback'>{this.state.emailValiMsg}</small>
+                            </div>
+                            <div className='form-group'>
+                                <label htmlFor='password'>密码</label>
+                                <input className={classnames({
+                                    'form-control': true,
+                                    'is-invalid': !!this.state.passwordValidMsg,
+                                })} id='password' name='password' type='password' placeholder='输入您的密码' onChange={this.handleChange} />
+                                <span className="invalid-feedback">{this.state.passwordValidMsg}</span>
+                            </div>
+                            <button className="btn btn-info" type="submit">登陆</button>
                         </form>
-                    </Col>
-                    <Col xsHidden md={4} lg={4} smHidden mdOffset={1} lgOffset={2}>
-                        <p>还没有蛋壳账号，<NavLink to='register'>马上注册</NavLink></p>
-                        <p>稍后再登陆，<NavLink to='/'>返回首页</NavLink></p>
-                    </Col>
-                </Row>
+                    </div>
+                    <div className="col-md">
+                        <div className='mt-4'>
+                            <p>还没有蛋壳账号，<NavLink to='register'>马上注册</NavLink></p>
+                            <p>稍后再登陆，<NavLink to='/'>返回首页</NavLink></p>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }
