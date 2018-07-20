@@ -1,38 +1,35 @@
 const identity = (state = {}, action) => {
     switch (action.type) {
-        // case 'REQUEST_LOGIN':
-        //     // TODO 请求登陆
-        //     break;
         case 'LOGIN_SUCCESS':
-            // ? 登陆成功
             return {
                 logined: true,
-                nickname: action.nickname,
-                role: action.role,
-                sex: action.sex,
-                imgurl: action.imgurl
+                ...action
             };
         case 'LOGIN_FAIL':
-            // ? 登陆失败
             return {
-                code: action.code,
-                msg: action.msg
+                logined: false,
+                ...action
             };
-        // case 'REQUEST_REGISTER':
-        //     // TODO 请求注册
-        //     break;
-        // case 'REGISTER_SUCCESS':
-        //     // TODO 注册成功
-        //     break;
+        case 'REGISTER_SUCCESS':
+            return {
+                ...action,
+                logined: true
+            };
         case 'REGISTER_FAIL':
-            // ? 注册失败
             return {
-                code: action.code,
-                msg: action.msg
+                ...action,
+                logined: false,
             };
-        // case 'LOGOUT':
-        //     // TODO 退出
-        //     break;
+        case 'LOGOUT_SUCCESS':
+            return {
+                ...action,
+                logined: false,
+            };
+        case 'LOGOUT_FAIL':
+            return {
+                ...action,
+                logined: true
+            };
         default: return state;
     }
 };

@@ -1,10 +1,13 @@
 import { connect } from 'react-redux';
-import IdentityNavbar from '../components/IdentityNavbar'; 
+import IdentityNavbar from '../components/IdentityNavbar';
+import { fetchLogout } from '../actions/identity';
 
-const mapStateToProps = (state) => {
-    return {
-        ...state.identity
-    };
-};
+const mapStateToProps = (state) => ({
+    ...state.identity
+});
 
-export default connect(mapStateToProps)(IdentityNavbar);
+const mapDispatchToProps = (dispatch) => ({
+    doLogout: () => dispatch(fetchLogout())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(IdentityNavbar);

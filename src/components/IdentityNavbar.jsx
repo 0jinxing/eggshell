@@ -12,24 +12,24 @@ class IdentityNavbar extends Component {
         let identityEl = this.props.logined && (
             <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
-                    <Link to={'/identity/user'} className="nav-link" activeClassName="active">
+                    <Link to={'/identity/people'} className="nav-link">
                         {this.props.nickname}
                     </Link>
                 </li>
                 <li className="nav-item">
-                    <Link to={'/identity/logout'} className="nav-link" activeClassName="active">
+                    <a className="nav-link" onClick={this.props.doLogout}>
                         退出
-                    </Link>
+                    </a>
                 </li>
             </ul>) || (
                 <ul className="navbar-nav ml-auto">
                     <li className="nav-item">
-                        <Link to={'/identity/login'} className="nav-link" activeClassName="active">
+                        <Link to={'/identity/login'} className="nav-link">
                             登陆
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to='/identity/register' className="nav-link" activeClassName="active">
+                        <Link to='/identity/register' className="nav-link">
                             注册
                         </Link>
                     </li>
@@ -54,7 +54,7 @@ class IdentityNavbar extends Component {
                                 <a className="nav-link" href="#">分类</a>
                             </li>
                             <li className="nav-item">
-                                <Link to='/movie/ranking' className="nav-link" activeClassName="active">
+                                <Link to='/movie/ranking' className="nav-link">
                                     排行
                                 </Link>
                             </li>
