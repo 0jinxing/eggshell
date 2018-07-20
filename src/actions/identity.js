@@ -56,6 +56,21 @@ export const logoutFail = () => ({
     type: "LOGOUT_FAIL"
 });
 
+// 检测邮箱是否可用
+export const requestCheckEmail = () => ({
+    type: 'REQUEST_CHECK_EMAIL'
+});
+
+// 邮箱可用
+export const emailValid = () => ({
+    type: 'EMAIL_VALID'
+});
+
+// 邮箱不可用
+export const emailInvalid = () => ({
+    type: 'EMAIL_INVALID'
+});
+
 // 异步action，登陆
 export const fetchLogin = (email, password) => {
     return (dispatch) => {
@@ -105,7 +120,7 @@ export const fetchLogout = () => {
                     dispatch(showAlert(json.msg, 2000, "success"));
                 }
                 else {
-                    dispatch(endLoading());                    
+                    dispatch(endLoading());
                     dispatch(logoutFail());
                     dispatch(showAlert(json.msg, 2000, "danger"));
 
