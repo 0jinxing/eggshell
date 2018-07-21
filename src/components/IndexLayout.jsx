@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import LoginForm from '../containers/LoginForm';
 import RegisterForm from '../containers/RegisterForm';
-import RankingPage from '../components/RankingPage';
+import RankingPage from '../containers/RankingPage';
 import IdentityNavbar from '../containers/IdentityNavbar';
 import Alert from '../containers/Alert';
 import Loading from '../containers/Loading';
