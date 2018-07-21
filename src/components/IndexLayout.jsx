@@ -6,6 +6,7 @@ import RankingPage from '../containers/RankingPage';
 import IdentityNavbar from '../containers/IdentityNavbar';
 import Alert from '../containers/Alert';
 import Loading from '../containers/Loading';
+import NetworkReconnect from "../containers/NetworkReconnect";
 
 class IndexLayout extends Component {
     render() {
@@ -19,6 +20,7 @@ class IndexLayout extends Component {
                 </div>
                 <Loading />
                 <Alert />
+                <NetworkReconnect/>
                 <div className="loader">
                 </div>
             </div>
