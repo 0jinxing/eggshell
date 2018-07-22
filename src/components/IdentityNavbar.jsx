@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logo from '../assets/brand/eggshell.png';
 
 class IdentityNavbar extends Component {
@@ -12,9 +12,9 @@ class IdentityNavbar extends Component {
         let identityEl = this.props.logined && (
             <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
-                    <Link to={'/identity/people'} className="nav-link">
+                    <NavLink to={'/identity/people'} className="nav-link">
                         {this.props.nickname}
-                    </Link>
+                    </NavLink>
                 </li>
                 <li className="nav-item">
                     <a className="nav-link" onClick={this.props.doLogout}>
@@ -24,23 +24,23 @@ class IdentityNavbar extends Component {
             </ul>) || (
                 <ul className="navbar-nav ml-auto">
                     <li className="nav-item">
-                        <Link to={'/identity/login'} className="nav-link">
+                        <NavLink to={'/identity/login'} className="nav-link">
                             登陆
-                        </Link>
+                        </NavLink>
                     </li>
                     <li className="nav-item">
-                        <Link to='/identity/register' className="nav-link">
+                        <NavLink to='/identity/register' className="nav-link">
                             注册
-                        </Link>
+                        </NavLink>
                     </li>
                 </ul>);
         return (
             <nav id="identity-navbar" className="navbar navbar-expand-lg navbar-light bg-light shadow-sm mb-5 bg-white rounded">
                 <div className='container'>
-                    <Link className="navbar-brand" to='/'>
+                    <NavLink className="navbar-brand" to='/'>
                         <img src={logo} height="30" className="d-inline-block align-top mr-2" alt="" />
                         蛋壳
-                    </Link>
+                    </NavLink>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -54,9 +54,9 @@ class IdentityNavbar extends Component {
                                 <a className="nav-link" href="#">分类</a>
                             </li>
                             <li className="nav-item">
-                                <Link to='/movie/ranking' className="nav-link">
+                                <NavLink to='/movie/ranking' className="nav-link">
                                     排行
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="#">影评</a>

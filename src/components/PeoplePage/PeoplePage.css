@@ -1,0 +1,10 @@
+#avatar {
+  display: none;
+}
+.avatar img{
+  display: block;
+}
+
+.avatar label {
+  cursor: pointer;
+}

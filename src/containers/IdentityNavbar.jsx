@@ -10,4 +10,4 @@ const mapDispatchToProps = (dispatch) => ({
     doLogout: () => dispatch(fetchLogout())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(IdentityNavbar);
+export default connect(mapStateToProps, mapDispatchToProps, undefined, { pure: false })(IdentityNavbar);
