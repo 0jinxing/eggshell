@@ -15,13 +15,11 @@ const receiveRankingDataSuccess = (movies) => ({
         films: movies
     }
 );
-
 export const fetchGet = () => {
     return (dispatch) => {
         let requestRankingDataUrl = ranking;
         dispatch(requestRankingData());
         dispatch(startLoading("加载数据中..."));
-        dispatch(endLoading());
         fetch(requestRankingDataUrl, {
             method: "GET",
             headers: {

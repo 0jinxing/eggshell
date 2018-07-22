@@ -8,6 +8,7 @@ import PeoplePage from '../containers/PeoplePage';
 import Alert from '../containers/Alert';
 import Loading from '../containers/Loading';
 import NetworkReconnect from "../containers/NetworkReconnect";
+import MovieDetails from "../containers/MovieDtails";
 
 class IndexLayout extends Component {
     render() {
@@ -19,6 +20,7 @@ class IndexLayout extends Component {
                     <Route path='/identity/register' component={RegisterForm} />
                     <Route path='/identity/people' component={PeoplePage} />
                     <Route path='/movie/ranking' component={RankingPage} />
+                    <Route path='/movie/details/:id' component={MovieDetails}/>
                 </div>
                 <Loading />
                 <Alert />
