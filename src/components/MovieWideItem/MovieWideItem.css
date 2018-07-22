@@ -1,0 +1,16 @@
+.movie-wide-item{
+}
+.movie-wide-item-body{
+
+}
+.movie-name{
+
+}
+.movie-description{
+    display: inline-block;
+    max-height: 100px;
+    max-width: 400px;
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis;
+}

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import MovieWideItem from './MovieWideItem';
+import MovieWideItem from './MovieWideItem/MovieWideItem';
 import {fetchGet} from "../actions/rankingPage";
 
 class RankingPage extends Component {
