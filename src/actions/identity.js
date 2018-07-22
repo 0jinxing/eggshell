@@ -82,7 +82,7 @@ export const fetchLogin = (email, password) => {
                 'Accept': 'application/json',
                 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
             },
-            body: { email, password },
+            body: `email=${email}&password=${password}`,
             credentials: 'include'
         }).then(response => response.json())
             .then(json => {
@@ -123,7 +123,6 @@ export const fetchLogout = () => {
                     dispatch(endLoading());
                     dispatch(logoutFail());
                     dispatch(showAlert(json.msg, 2000, "danger"));
-
                 }
             });
     };
@@ -140,11 +139,7 @@ export const fetchRegister = (nickname, email, password) => {
                 'Accept': 'application/json',
                 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
             },
-            body: {
-                nickname,
-                email,
-                password
-            },
+            body: `nickname=${nickname}&email=${email}&password=${password}`,
             credentials: 'include'
         }).then(response => response.json())
             .then(json => {

@@ -51,12 +51,13 @@ export const modifyUserInfo = (nickname, introduction, sex, role, createtime, em
     data.append("role", role);
     data.append("createtime", createtime);
     data.append("email", email);
-    data.append("imgurl", imgurl);  // 并不是url
+    data.append("avater", imgurl);  // 并不是url
     fetch(mUrl.people, {
-      method: "PUT",
+      method: "POST",
       headers: {
         'Accept': 'application/json'
       },
+      credentials: "include",
       body: data
     })
       .then(response => response.json())
