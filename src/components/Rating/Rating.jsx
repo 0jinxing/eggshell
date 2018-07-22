@@ -12,5 +12,4 @@ const Rating = ({grade = 0,commentNum = 0}) => {
             <span>({commentNum}评价)</span>
         </p>);
 };
-
 export default Rating;

@@ -1,16 +1,9 @@
-.movie-wide-item{
+.movie-wide-item {
 }
-.movie-wide-item-body{
-
+.movie-wide-item > img {
+    cursor: pointer;
 }
-.movie-name{
-
+.movie-wide-item-body {
 }
-.movie-description{
-    display: inline-block;
-    max-height: 100px;
-    max-width: 400px;
-    overflow: hidden;
-    white-space: normal;
-    text-overflow: ellipsis;
+.movie-name {
 }

@@ -1,0 +1,11 @@
+p.summary{
+    display: inline-block;
+    white-space: normal;
+}
+.more{
+    color: #336fa0;
+}
+.more:hover{
+    background-color:#336fa0;
+    color: white;
+}
