@@ -75,7 +75,6 @@ export const emailInvalid = () => ({
 export const fetchLogin = (email, password) => {
     return (dispatch) => {
         dispatch(requestLogin());
-        dispatch(startLoading("登陆中..."));
         fetch(mUrl.login, {
             method: 'POST',
             headers: {
@@ -93,7 +92,6 @@ export const fetchLogin = (email, password) => {
                 }
                 else {
                     dispatch(loginFail(json.code, json.msg));
-                    dispatch(endLoading());
                     dispatch(showAlert(json.msg, 2000, "danger"));
                 }
             });
@@ -104,7 +102,6 @@ export const fetchLogin = (email, password) => {
 export const fetchLogout = () => {
     return (dispatch) => {
         dispatch(requestLogout());
-        dispatch(startLoading('退出中...'));
         fetch(mUrl.logout, {
             method: 'GET',
             headers: {
@@ -116,11 +113,9 @@ export const fetchLogout = () => {
             .then(json => {
                 if (json.code == 1) {
                     dispatch(logoutSuccess());
-                    dispatch(endLoading());
                     dispatch(showAlert(json.msg, 2000, "success"));
                 }
                 else {
-                    dispatch(endLoading());
                     dispatch(logoutFail());
                     dispatch(showAlert(json.msg, 2000, "danger"));
                 }
@@ -131,7 +126,6 @@ export const fetchLogout = () => {
 // 异步action，注册
 export const fetchRegister = (nickname, email, password) => {
     return (dispatch) => {
-        dispatch(startLoading("注册中..."));
         dispatch(requestRegister());
         fetch(mUrl.register, {
             method: 'POST',
@@ -144,12 +138,10 @@ export const fetchRegister = (nickname, email, password) => {
         }).then(response => response.json())
             .then(json => {
                 if (json.code == 1) {
-                    dispatch(endLoading());
                     dispatch(registerSuccess(email, json.data));
                     dispatch(showAlert(json.msg, 2000, "success"));
                 }
                 else {
-                    dispatch(endLoading());
                     dispatch(registerFail(json.code, json.msg));
                     dispatch(showAlert(json.msg, 2000, "danger"));
                 }
