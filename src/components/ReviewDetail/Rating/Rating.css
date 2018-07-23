@@ -1,0 +1,15 @@
+.review-rating {
+    font-size: 14px;
+    line-height: inherit;
+    display: inline-block;
+    vertical-align: baseline;
+    margin: 0;
+}
+
+.review-rating .star {
+    display: inline-block;
+    vertical-align: baseline;
+    width: 55px;
+    height: 11px;
+    background: url('../../../assets/ic_rating_s.png') no-repeat;
+}

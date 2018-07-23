@@ -1,10 +1,10 @@
 #avatar {
   display: none;
 }
-.avatar img{
+.people-page .avatar img{
   display: block;
 }
 
-.avatar label {
+.people-page .avatar label {
   cursor: pointer;
 }

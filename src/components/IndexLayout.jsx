@@ -9,6 +9,7 @@ import Alert from '../containers/Alert';
 import Loading from '../containers/Loading';
 import NetworkReconnect from "../containers/NetworkReconnect";
 import MovieDetails from "../containers/MovieDtails";
+import ReviewDetail from '../components/ReviewDetail/ReviewDetail';
 
 class IndexLayout extends Component {
     render() {
@@ -20,11 +21,12 @@ class IndexLayout extends Component {
                     <Route path='/identity/register' component={RegisterForm} />
                     <Route path='/identity/people' component={PeoplePage} />
                     <Route path='/movie/ranking' component={RankingPage} />
-                    <Route path='/movie/details/:id' component={MovieDetails}/>
+                    <Route path='/movie/details/:id' component={MovieDetails} />
+                    <Route path='/review/:id' component={ReviewDetail} />
                 </div>
                 <Loading />
                 <Alert />
-                <NetworkReconnect/>
+                <NetworkReconnect />
                 <div className="loader">
                 </div>
             </div>
