@@ -3,17 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-.movie-detail-box ul {
-}
-
-.movie-detail-box li {
-    list-style: none;
-}
-
-.movie-detail-box li > span:first-child {
-    color: #999;
-}
-
 .movie-detail-box a, a:hover {
     text-decoration: none;
 }
@@ -40,6 +29,9 @@
 }
 .movie-cover>img{
     width: 135px;
+}
+.movie-detail-box .summary{
+    margin: 10px;
 }
 .movie-detail-box .summary>h6{
     color: #007722;

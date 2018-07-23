@@ -1,10 +1,9 @@
-import MovieInfo from "./MovieInfo";
+import MovieInfo from "../MovieInfo/MovieInfo";
 import React from "react";
 import "./movieDetails.css";
-import Summary from "../Summary/Summary";
-import Scoreboard from "./Scoreboard";
-// import "./scoreboard.css";
-import cloud_error from "../../assets/cloud-error.png";
+import Summary from "../../Summary/Summary";
+import Scoreboard from "../Scoreboard/Scoreboard";
+import cloud_error from "../../../assets/cloud-error.png";
 
 const MovieDetails = ({movieDetails}) => {
     let bgi = {

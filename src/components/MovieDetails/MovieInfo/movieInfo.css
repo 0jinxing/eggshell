@@ -1,0 +1,8 @@
+ul.movie-info  {
+}
+.movie-info li {
+    list-style: none;
+}
+.movie-info li > span:first-child {
+    color: #666;
+}

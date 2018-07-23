@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import Details from "../components/MovieDetails/MovieDetails";
+import Details from "../components/MovieDetails/MovieDetails/MovieDetails";
 import React, {Component} from "react";
 import {getMovieFetch} from "../actions/moviesDetails";
 

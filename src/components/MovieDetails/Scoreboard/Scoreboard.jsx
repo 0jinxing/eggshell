@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./scoreboard.css";
 const Scoreboard = () => {
     let data = [10, 15, 25, 30, 30];
     return (

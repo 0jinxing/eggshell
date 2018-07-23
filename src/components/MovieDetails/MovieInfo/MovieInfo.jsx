@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-
+import "./movieInfo.css";
 class MovieInfo extends Component {
     constructor(props, {movieDetails}) {
         super(props);
@@ -18,7 +18,7 @@ class MovieInfo extends Component {
 
     render() {
         return (
-            <ul>
+            <ul className="movie-info">
                 <li>
                     <span>导演：</span>
                     <span>{this.convert(this.props.movieDetails.director)||"未知！"}</span>
