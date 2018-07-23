@@ -1,4 +1,4 @@
-export React from "react";
+import React from "react";
 import page404ErrorImg from  "../../assets/404ErrorPage.png";
 export const Page404 = () => {
     return (
