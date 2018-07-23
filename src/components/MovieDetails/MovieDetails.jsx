@@ -3,7 +3,7 @@ import React from "react";
 import "./movieDetails.css";
 import Summary from "../Summary/Summary";
 import Scoreboard from "./Scoreboard";
-import "./scoreboard.css";
+// import "./scoreboard.css";
 import cloud_error from "../../assets/cloud-error.png";
 
 const MovieDetails = ({movieDetails}) => {
