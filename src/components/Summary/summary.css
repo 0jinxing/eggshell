@@ -1,11 +1,11 @@
-p.summary{
+.summary p{
     display: inline-block;
     white-space: normal;
 }
-.more{
+.summary .more{
     color: #336fa0;
 }
-.more:hover{
+.summary .more:hover{
     background-color:#336fa0;
     color: white;
 }

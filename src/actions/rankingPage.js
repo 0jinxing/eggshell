@@ -26,7 +26,10 @@ export const fetchGet = () => {
                 "Accept": 'application/json'
             }
         }).then(
-            response => response.json()
+            response => {
+                dispatch(endLoading());//结束加载动画
+                return  response.json();
+            }
         ).then(json => {
             console.log(json);
             if (json.code === 1) {
@@ -35,12 +38,11 @@ export const fetchGet = () => {
             } else {
                 dispatch(showAlert("获取数据失败", 3000, "danger"));
             }
-            dispatch(endLoading());//结束加载动画
         }).catch((reason) => {
-            if(navigator.online){
+            if (navigator.online) {
                 dispatch(showAlert("获取数据失败", 3000, "danger"));
 
-            }else{
+            } else {
                 dispatch(showAlert("网络连接异常", 3000, "danger"));
                 dispatch(addFailInternetRequest(fetchGet));//添加失败的动作
             }

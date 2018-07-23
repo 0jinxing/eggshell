@@ -106,6 +106,6 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "proxy": "http://172.19.214.84/",
+  "proxy": "http://rap2api.taobao.org/app/mock/22009/",
   "homepage": "https://unroll.github.io/eggshell/build/"
 }
