@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+}
+
+li {
+    list-style: none;
+}
+
+li > span:first-child {
+    color: #999;
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+
+.movie-name {
+}
+.movie-detail-box{
+}
+.movie-detail-body{
+    overflow: hidden;
+}
+.movie-cover{
+    float: left;
+}
+.movie-info{
+    float: left;
+    max-width: 300px;
+}
+.scoreboard{
+}
+.movie-cover>img{
+    width: 135px;
+}
+.summary>h6{
+    color: #007722;
+}
+@media screen and (max-width: 464px){
+    .movie-cover>img{
+        display: none;
+    }
+    *{
+        color: #f1f1f1;
+    }
+}
+@media screen and (min-width:465px){
+    .movie-detail-box{
+        background: #ffffff !important;
+    }
+}
+
