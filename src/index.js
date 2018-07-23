@@ -14,6 +14,7 @@ import App from './App';
 const persistConfig = {
     key: 'root',
     storage,
+    blacklist: ['alert', 'loading']
 };
 
 const persistedReducer = persistReducer(persistConfig, reduxers);
