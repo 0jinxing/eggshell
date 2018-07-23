@@ -1,21 +1,21 @@
-* {
+.movie-detail-box * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-ul {
+.movie-detail-box ul {
 }
 
-li {
+.movie-detail-box li {
     list-style: none;
 }
 
-li > span:first-child {
+.movie-detail-box li > span:first-child {
     color: #999;
 }
 
-a, a:hover {
+.movie-detail-box a, a:hover {
     text-decoration: none;
 }
 
@@ -45,7 +45,7 @@ a, a:hover {
     .movie-cover>img{
         display: none;
     }
-    *{
+    .movie-detail-box *{
         color: #f1f1f1;
     }
 }
