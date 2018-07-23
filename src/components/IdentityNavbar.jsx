@@ -21,11 +21,13 @@ class IdentityNavbar extends Component {
                     </NavLink>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" onClick={this.props.doLogout}>
+                    <a href="#" className="nav-link" onClick={() => {
+                        this.props.doLogout();
+                    }}>
                         退出
                     </a>
                 </li>
-            </ul>) || (
+            </ul >) || (
                 <ul className="navbar-nav ml-auto">
                     <li className="nav-item">
                         <NavLink to={'/identity/login'} className="nav-link">
