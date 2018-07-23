@@ -35,8 +35,8 @@ export const fetchGet = () => {
             if (json.code === 1) {
                 dispatch(receiveRankingDataSuccess(json.data.movies));
                 console.log(json.data.movies);
-            } else {
-                dispatch(showAlert("获取数据失败", 3000, "danger"));
+            } else{
+                dispatch(showAlert(json.msg||"获取数据失败",3000,"danger"));
             }
         }).catch((reason) => {
             if (navigator.online) {

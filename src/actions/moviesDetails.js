@@ -27,7 +27,7 @@ export const getMovieFetch = (movieId) => {
             if(json.code === 1){
                 dispatch(receiveMovieData(json.data));
             }else{
-                dispatch(showAlert(json.msg,3000,"danger"));
+                dispatch(showAlert(json.msg||"获取数据失败",3000,"danger"));
             }
         }).catch(error => {
             if (navigator.online) {

@@ -4,7 +4,7 @@ const Scoreboard = () => {
     let data = [10, 15, 25, 30, 30];
     return (
         <div className="scoreboard">
-            <h6>蛋壳评分</h6>
+            <h5>蛋壳评分</h5>
             <div className="scoreboard-total">
                 <div className="scoreboard-total-left">
                     <span className="scoreboard-score">6.6</span>
