@@ -5,7 +5,8 @@ import loading from './loading';
 import { rankingPage } from "./rankingPage";
 import { networkReconnect } from "./networkReconnect";
 import user from './user';
-import {movieDetails} from "./movieDetails";
+import { movieDetails } from "./movieDetails";
+import reviewDetail from './reviewDetail';
 
 export default combineReducers({
     identity,
@@ -14,5 +15,6 @@ export default combineReducers({
     rankingPage,
     networkReconnect,
     user,
-    movieDetails
+    movieDetails,
+    reviewDetail
 });

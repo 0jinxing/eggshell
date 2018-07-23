@@ -9,7 +9,7 @@ import Alert from '../containers/Alert';
 import Loading from '../containers/Loading';
 import NetworkReconnect from "../containers/NetworkReconnect";
 import MovieDetails from "../containers/MovieDtails";
-import ReviewDetail from '../components/ReviewDetail/ReviewDetail';
+import ReviewDetail from '../containers/ReviewDetail';
 
 class IndexLayout extends Component {
     render() {
