@@ -1,5 +1,75 @@
-.review-detail .movie img{
+.review-detail .title {
+  margin-bottom: 24px;
+}
+
+.review-detail .user-info img {
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.review-detail {
+  font-size: 14px;
+}
+
+.review-detail span {
+  color: #666666;
+}
+
+.review-detail span,
+.review-detail a {
+  margin-right: 8px;
+}
+
+.review-detail .user-info {
+  margin-bottom: 16px;
+}
+
+.review-detail .oops button {
+  margin: 8px;
+}
+
+.movie {
+  margin-top: 52px;
+  margin-left: 24px;
+}
+
+.review-detail .movie img {
+  margin-top: 16px;
   display: block;
 }
 
+.review-detail .movie ul,
+.review-detail .movie li {
+  margin: 0;
+  padding: 0;
+}
 
+.review-detail .movie li {
+  list-style: none;
+}
+
+.review-detail .more {
+  margin-left: 24px;
+}
+
+.review-detail .more ul,
+.review-detail .more li {
+  margin: 0;
+  padding: 0;
+}
+
+.review-detail .more li {
+  list-style: none;
+  margin-bottom: 8px;
+}
+
+.review-detail .more a {
+  display: block;
+  font-size: 16px;
+}
+
+.review-detail .more h5 {
+  font-size: 18px;
+  margin-top: 36px;
+  margin-bottom: 8px;
+}
