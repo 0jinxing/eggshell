@@ -4,6 +4,10 @@ import logo from '../assets/brand/eggshell.png';
 
 class IdentityNavbar extends Component {
 
+    componentWillMount() {
+        this.props.getUserInfo();
+    }
+
     handleSearch(e) {
         e.preventDefault();
     }

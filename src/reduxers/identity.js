@@ -30,6 +30,18 @@ const identity = (state = {}, action) => {
                 ...action,
                 logined: true
             };
+        case "GET_USER_INFO_FAIL":
+            return {
+                ...action,
+                logined: false
+            };
+        case "GET_USER_INFO_SUCCESS":
+            return {
+                ...action,
+                logined: true
+            };
+        case "REQUEST_MODIFY_USER_INFO":
+            return { ...state, request: true };
         default: return state;
     }
 };

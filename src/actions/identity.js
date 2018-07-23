@@ -71,6 +71,19 @@ export const emailInvalid = () => ({
     type: 'EMAIL_INVALID'
 });
 
+export const requestUserInfo = () => ({
+    type: 'REQUEST_USER_INFO'
+});
+
+export const getUserInfoSuccess = (data) => ({
+    type: 'GET_USER_INFO_SUCCESS',
+    ...data
+});
+
+export const getUserInfoFail = () => ({
+    type: 'GET_USER_INFO_FAIL'
+});
+
 // 异步action，登陆
 export const fetchLogin = (email, password) => {
     return (dispatch) => {
@@ -145,6 +158,26 @@ export const fetchRegister = (nickname, email, password) => {
                     dispatch(registerFail(json.code, json.msg));
                     dispatch(showAlert(json.msg, 2000, "danger"));
                 }
+            });
+    };
+};
+
+export const fetchUserInfo = () => {
+    return (dispatch) => {
+        dispatch(requestUserInfo());
+        fetch(mUrl.people, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
+            },
+            credentials: 'include'
+        }).then(response => response.json())
+            .then(json => {
+                if (json.code == 1) {
+                    dispatch(getUserInfoSuccess(json.data));
+                }
+                else dispatch(getUserInfoFail());
             });
     };
 };
