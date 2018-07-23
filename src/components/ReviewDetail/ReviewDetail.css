@@ -2,6 +2,10 @@
   margin-bottom: 24px;
 }
 
+.review-detail .content p {
+  text-indent: 2em;
+}
+
 .review-detail .user-info img {
   margin-right: 8px;
   vertical-align: middle;
@@ -9,6 +13,7 @@
 
 .review-detail {
   font-size: 14px;
+  margin-bottom: 24px;
 }
 
 .review-detail span {
