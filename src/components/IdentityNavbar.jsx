@@ -59,7 +59,9 @@ class IdentityNavbar extends Component {
                                 </NavLink>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">影评</a>
+                                <NavLink to='/review/10' className="nav-link">
+                                    影评
+                                </NavLink>
                             </li>
                         </ul>
                         {identityEl}
