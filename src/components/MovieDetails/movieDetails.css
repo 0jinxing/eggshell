@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 .movie-detail-box ul {
 }
 
@@ -20,6 +19,7 @@
 }
 
 .movie-name {
+
 }
 .movie-detail-box{
 }
@@ -28,20 +28,25 @@
 }
 .movie-cover{
     float: left;
+    margin: 10px;
 }
 .movie-info{
     float: left;
     max-width: 300px;
+    margin:10px;
 }
 .scoreboard{
+    float: left;
 }
 .movie-cover>img{
     width: 135px;
 }
-.summary>h6{
+.movie-detail-box .summary>h6{
     color: #007722;
+    font-size: 20px;
+    margin: 10px;
 }
-@media screen and (max-width: 464px){
+@media screen and (max-width: 505px){
     .movie-cover>img{
         display: none;
     }
@@ -49,9 +54,8 @@
         color: #f1f1f1;
     }
 }
-@media screen and (min-width:465px){
+@media screen and (min-width:504px){
     .movie-detail-box{
         background: #ffffff !important;
     }
 }
-

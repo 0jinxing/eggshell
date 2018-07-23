@@ -2,7 +2,8 @@ import MovieInfo from "./MovieInfo";
 import React from "react";
 import "./movieDetails.css";
 import Summary from "../Summary/Summary";
-
+import Scoreboard from "./Scoreboard";
+import "./scoreboard.css";
 const MovieDetails = ({movieDetails}) => {
     let bgi = {
         backgroundImage: `url('${movieDetails.imgurl}')`,
@@ -25,6 +26,7 @@ const MovieDetails = ({movieDetails}) => {
                     <MovieInfo movieDetails={movieDetails}/>
                 </div>
                 <div className="scoreboard">
+                    <Scoreboard/>
                 </div>
             </div>
             <div className="summary">
