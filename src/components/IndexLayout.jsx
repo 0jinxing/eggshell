@@ -10,7 +10,9 @@ import Loading from '../containers/Loading';
 import NetworkReconnect from "../containers/NetworkReconnect";
 import MovieDetails from "../containers/MovieDtails";
 import ReviewDetail from '../containers/ReviewDetail';
-import ReviewList from '../containers/BastReviewList';
+import BastReviewList from '../containers/BastReviewList';
+import LastReviewList from '../containers/LastReviewList';
+
 
 class IndexLayout extends Component {
     render() {
@@ -24,7 +26,8 @@ class IndexLayout extends Component {
                     <Route path='/movie/ranking' component={RankingPage} />
                     <Route path='/movie/details/:id' component={MovieDetails} />
                     <Route path='/review/:id' component={ReviewDetail} />
-                    <Route path='/review_list' component={ReviewList} />
+                    <Route path='/review_list' component={BastReviewList} />
+                    <Route exact path='/' component={LastReviewList} />
                 </div>
                 <Loading />
                 <Alert />

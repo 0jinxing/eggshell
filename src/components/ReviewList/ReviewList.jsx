@@ -14,7 +14,7 @@ export default class ReviewList extends React.Component {
       {...item} doSupport={this.props.doSupport} doOppose={this.props.doOppose} />);
     return (
       <div className="container review-list">
-        <h3 className='mt-4 mb-4 font-weight-light border-bottom p-2'>最受欢迎的影评</h3>
+        <h3 className='mt-4 mb-4 font-weight-light border-bottom p-2'>{!!this.props.title ? this.props.title : "最受欢迎的影评"}</h3>
         <div className="list">
           {contentEl}
         </div>

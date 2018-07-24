@@ -8,4 +8,4 @@ export const review = "/api/review";
 export const review_oppose = '/api/review/oppose';
 export const review_support = '/api/review/support';
 export const review_bast = '/api/review/best';
-export const review_last = '/api/review/last';
+export const review_last = '/api/review/latest';

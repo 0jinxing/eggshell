@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
-import { fetchBastReview, fetchSupport, fetchOppose } from '../actions/review';
+import { fetchLastReview, fetchSupport, fetchOppose } from '../actions/review';
 import ReviewList from '../components/ReviewList/ReviewList';
 
 const mapStateToProps = (state) => ({
-  ...state.review
+  ...state.review,
+  title: "最新的影评"
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  jumpPage: (page) => dispatch(fetchBastReview(page)),
+  jumpPage: (page) => dispatch(fetchLastReview(page)),
   doSupport: (id) => {
     dispatch(fetchSupport(id));
   },

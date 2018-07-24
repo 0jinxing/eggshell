@@ -4,6 +4,9 @@ import * as mUrl from '../url';
 export const getBastReview = createAction("GET_BAST_REVIEW", data => data);
 export const getLastReview = createAction("GET_LAST_REVIEW", data => data);
 
+export const support = createAction("REVIEWS_SUPPORT", data => data);
+export const oppose = createAction("REVIEWS_OPPOSE", data => data);
+
 export const fetchBastReview = (page) => {
   return (dispatch) => {
     fetch(`${mUrl.review_bast}?page=${page}`)
@@ -21,5 +24,33 @@ export const fetchLastReview = (page) => {
       .then(json => {
         dispatch(getLastReview(json.data));
       });
+  };
+};
+
+export const fetchOppose = (id) => {
+  return (dispatch) => {
+    fetch(mUrl.review_oppose, {
+      method: 'PUT',
+      headers: {
+        "Accept": "application/json",
+        "content-type": ""
+      },
+      body: `film_review_id=${id}`
+    }).then(res => res.json())
+      .then(json => dispatch(oppose({ id, oppose: json.data.oppose })));
+  };
+};
+
+export const fetchSupport = (id) => {
+  return (dispatch) => {
+    fetch(mUrl.review_support, {
+      method: 'PUT',
+      headers: {
+        "Accept": "application/json",
+        "content-type": ""
+      },
+      body: `film_review_id=${id}`
+    }).then(res => res.json())
+      .then(json => dispatch(support({ id, support: json.data.support })));
   };
 };
