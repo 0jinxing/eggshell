@@ -1,0 +1,28 @@
+.rating-editor-start *{
+    margin: 0;
+    padding: 0;
+}
+.rating-editor-start{
+    overflow: hidden;
+    line-height: 30px;
+    height: 30px;
+}
+.rating-editor-start span{
+    float: left;
+}
+.rating-editor-start .title{
+    font-size: 12px;
+}
+.rating-editor-start .start{
+    width: 55px;
+    height: 11px;
+    background: url("../../../assets/ic_rating_s.png") no-repeat;
+    cursor: pointer;
+    margin: 10px 5px;
+}
+.rating-editor-start .label{
+    font-size: 12px;
+}
+.rating-editor-start ul li:hover{
+    cursor: pointer;
+}

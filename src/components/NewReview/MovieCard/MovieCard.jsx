@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import {Link} from "react-router-dom";
-
+import "./movieCard.css";
 class MovieCard extends Component{
     constructor(props){
         super(props);
@@ -13,7 +13,7 @@ class MovieCard extends Component{
                 </div>
                 <div className="new_card_right">
                     <span>摩天营救</span>
-                    <p><a>导演 罗森·马歇尔·瑟伯 主演 道恩·强森 / 内芙·坎贝尔 / 美国 / 6.6分(24124评价)</a></p>
+                    <p><Link to="">导演 罗森·马歇尔·瑟伯 主演 道恩·强森 / 内芙·坎贝尔 / 美国 / 6.6分(24124评价)</Link></p>
                 </div>
 
             </div>

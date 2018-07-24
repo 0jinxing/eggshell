@@ -1,0 +1,33 @@
+.new_card *{
+    padding: 0;
+    margin: 0;
+}
+.new_card{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    min-width: 500px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+}
+.new_card .new_card_left{
+    width: 50px;
+}
+.new_card .new_card_right{
+    flex: 1;
+}
+.new_card_left img{
+    width: 50px;
+}
+.new_card_right span{
+    display: block;
+    color: #4a86b3;
+    margin: 5px;
+}
+.new_card_right p{
+    display: block;
+    color: #666;
+    font-size: 14px;
+    margin: 5px;
+    cursor: pointer;
+}
