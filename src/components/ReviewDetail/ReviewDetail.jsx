@@ -41,8 +41,8 @@ export default class ReviewDetail extends React.Component {
               {contentEl}
             </div>
             <div className="oops d-flex justify-content-center">
-              <button onClick={() => this.handleSupport(this.props.match.id)} className="btn btn-outline-primary my-2 my-sm-0">有用 {support}</button>
-              <button onClick={() => this.handleOppose(this.props.match.id)} className="btn btn-outline-danger my-2 my-sm-0">没用 {oppose}</button>
+              <button onClick={() => this.handleSupport(id)} className="btn btn-outline-primary my-2 my-sm-0">有用 {support}</button>
+              <button onClick={() => this.handleOppose(id)} className="btn btn-outline-danger my-2 my-sm-0">没用 {oppose}</button>
             </div>
           </div>
           <div className="col-md-4 col-sm-12">
