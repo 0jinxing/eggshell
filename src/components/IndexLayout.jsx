@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import React, {Component} from 'react';
+import {Route} from 'react-router-dom';
 import LoginForm from '../containers/LoginForm';
 import RegisterForm from '../containers/RegisterForm';
 import RankingPage from '../containers/RankingPage';
@@ -12,26 +12,27 @@ import MovieDetails from "../containers/MovieDtails";
 import ReviewDetail from '../containers/ReviewDetail';
 import BastReviewList from '../containers/BastReviewList';
 import LastReviewList from '../containers/LastReviewList';
-
+import NewReview from "../components/NewReview/NewReview";
 
 class IndexLayout extends Component {
     render() {
         return (
             <div id='index-layout'>
-                <IdentityNavbar />
+                <IdentityNavbar/>
                 <div className='container'>
-                    <Route path='/identity/login' component={LoginForm} />
-                    <Route path='/identity/register' component={RegisterForm} />
-                    <Route path='/identity/people' component={PeoplePage} />
-                    <Route path='/movie/ranking' component={RankingPage} />
-                    <Route path='/movie/details/:id' component={MovieDetails} />
-                    <Route path='/review/:id' component={ReviewDetail} />
-                    <Route path='/review_list' component={BastReviewList} />
-                    <Route exact path='/' component={LastReviewList} />
+                    <Route path='/identity/login' component={LoginForm}/>
+                    <Route path='/identity/register' component={RegisterForm}/>
+                    <Route path='/identity/people' component={PeoplePage}/>
+                    <Route path='/movie/ranking' component={RankingPage}/>
+                    <Route path='/movie/details/:id' component={MovieDetails}/>
+                    <Route path='/review/:id' component={ReviewDetail}/>
+                    <Route path='/review_list' component={BastReviewList}/>
+                    <Route path='/new_review/:id' component={NewReview}/>
+                    <Route exact path='/' component={LastReviewList}/>
                 </div>
-                <Loading />
-                <Alert />
-                <NetworkReconnect />
+                <Loading/>
+                <Alert/>
+                <NetworkReconnect/>
                 <div className="loader">
                 </div>
             </div>
