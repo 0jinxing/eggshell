@@ -34,7 +34,7 @@ export const fetchOppose = (id) => {
       },
       body: `film_review_id=${id}`
     }).then(res => res.json())
-      .then(json => dispatch(oppose(json.data.oppose)));
+      .then(json => dispatch(oppose(json.data)));
   };
 };
 
@@ -48,6 +48,6 @@ export const fetchSupport = (id) => {
       },
       body: `film_review_id=${id}`
     }).then(res => res.json())
-      .then(json => dispatch(support(json.data.support)));
+      .then(json => dispatch(support(json.data)));
   };
 };

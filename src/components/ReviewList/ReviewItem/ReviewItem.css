@@ -24,12 +24,9 @@
 
 .review-item .media-body p {
   margin-top: 4px;
+  overflow: hidden;
 }
 
 .review-item .oops {
   margin-top: 16px;
-}
-
-.review-item .content {
-  max-height: 5em;
 }
