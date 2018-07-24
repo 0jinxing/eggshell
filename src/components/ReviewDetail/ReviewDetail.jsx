@@ -5,7 +5,7 @@ import Rating from './Rating/Rating';
 export default class ReviewDetail extends React.Component {
 
   componentWillMount() {
-    this.props.getReviewDetail(this.props.match.id);
+    this.props.getReviewDetail(this.props.match.params.id);
   }
 
   handleSupport = (id) => {

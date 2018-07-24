@@ -29,28 +29,18 @@ export const fetchLastReview = (page) => {
 
 export const fetchOppose = (id) => {
   return (dispatch) => {
-    fetch(mUrl.review_oppose, {
+    fetch(`${mUrl.review_oppose}?film_review_id=${id}`, {
       method: 'PUT',
-      headers: {
-        "Accept": "application/json",
-        "content-type": ""
-      },
-      body: `film_review_id=${id}`
     }).then(res => res.json())
-      .then(json => dispatch(oppose({ id, oppose: json.data.oppose })));
+      .then(json => dispatch(oppose({ id, oppose: json.data })));
   };
 };
 
 export const fetchSupport = (id) => {
   return (dispatch) => {
-    fetch(mUrl.review_support, {
+    fetch(`${mUrl.review_support}?film_review_id=${id}`, {
       method: 'PUT',
-      headers: {
-        "Accept": "application/json",
-        "content-type": ""
-      },
-      body: `film_review_id=${id}`
     }).then(res => res.json())
-      .then(json => dispatch(support({ id, support: json.data.support })));
+      .then(json => dispatch(support({ id, support: json.data })));
   };
 };
