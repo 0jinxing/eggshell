@@ -74,7 +74,7 @@ class RegisterForm extends Component {
     render() {
         return (
             <div id='register-form'>
-                <h3 className='mt-4 mb-4 font-weight-light border-bottom p-2'>蛋壳注册</h3>
+                <h3 className='mt-4 mb-4 font-weight-light border-bottom p-2'>注册</h3>
                 <div className='row'>
                     <div className='col-md-4 col-sm-12'>
                         <form onSubmit={this.handleSubmit}>
