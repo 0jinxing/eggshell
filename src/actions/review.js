@@ -9,7 +9,9 @@ export const oppose = createAction("REVIEWS_OPPOSE", data => data);
 
 export const fetchBastReview = (page) => {
   return (dispatch) => {
-    fetch(`${mUrl.review_bast}?page=${page}`)
+    fetch(`${mUrl.review_bast}?page=${page}`, {
+      credentials: 'include'
+    })
       .then(res => res.json())
       .then(json => {
         dispatch(getBastReview(json.data));
@@ -19,7 +21,9 @@ export const fetchBastReview = (page) => {
 
 export const fetchLastReview = (page) => {
   return (dispatch) => {
-    fetch(`${mUrl.review_last}?page=${page}`)
+    fetch(`${mUrl.review_last}?page=${page}`, {
+      credentials: 'include'
+    })
       .then(res => res.json())
       .then(json => {
         dispatch(getLastReview(json.data));
@@ -31,6 +35,7 @@ export const fetchOppose = (id) => {
   return (dispatch) => {
     fetch(`${mUrl.review_oppose}?film_review_id=${id}`, {
       method: 'PUT',
+      credentials: 'include'
     }).then(res => res.json())
       .then(json => dispatch(oppose({ id, oppose: json.data })));
   };
@@ -40,6 +45,7 @@ export const fetchSupport = (id) => {
   return (dispatch) => {
     fetch(`${mUrl.review_support}?film_review_id=${id}`, {
       method: 'PUT',
+      credentials: 'include'
     }).then(res => res.json())
       .then(json => dispatch(support({ id, support: json.data })));
   };

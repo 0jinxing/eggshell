@@ -10,7 +10,7 @@ export const oppose = createAction("OPPOSE", data => data);
 export const fetchReview = (id) => {
   return (dispatch) => {
     dispatch(requestReview());
-    fetch(`${mUrl.review}?film_review_id=${id}`, {
+    fetch(`${mUrl.review}/${id}`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -26,13 +26,9 @@ export const fetchReview = (id) => {
 
 export const fetchOppose = (id) => {
   return (dispatch) => {
-    fetch(mUrl.review_oppose, {
+    fetch(`${mUrl.review_oppose}?film_review_id=${id}`, {
       method: 'PUT',
-      headers: {
-        "Accept": "application/json",
-        "content-type": ""
-      },
-      body: `film_review_id=${id}`
+      credentials: 'include'
     }).then(res => res.json())
       .then(json => dispatch(oppose(json.data)));
   };
@@ -40,13 +36,9 @@ export const fetchOppose = (id) => {
 
 export const fetchSupport = (id) => {
   return (dispatch) => {
-    fetch(mUrl.review_support, {
+    fetch(`${mUrl.review_support}?film_review_id=${id}`, {
       method: 'PUT',
-      headers: {
-        "Accept": "application/json",
-        "content-type": ""
-      },
-      body: `film_review_id=${id}`
+      credentials: 'include'
     }).then(res => res.json())
       .then(json => dispatch(support(json.data)));
   };
