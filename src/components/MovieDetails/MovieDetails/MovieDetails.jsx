@@ -4,6 +4,7 @@ import "./movieDetails.css";
 import Summary from "../../Summary/Summary";
 import Scoreboard from "../Scoreboard/Scoreboard";
 import cloud_error from "../../../assets/cloud-error.png";
+import {Link} from "react-router-dom";
 
 const MovieDetails = ({movieDetails}) => {
     let bgi = {
@@ -28,9 +29,15 @@ const MovieDetails = ({movieDetails}) => {
                         <MovieInfo movieDetails={movieDetails}/>
                     </div>
                     <div className="scoreboard">
-                        <Scoreboard/>
+                        <Scoreboard grade={movieDetails.grade}/>
+                        <div style={{marginLeft: "10px"}}>
+                            <button className="btn btn-outline-primary  mr-2 my-sm-0">
+                                <Link to={`/new_review/${movieDetails.id}`}>写影评</Link>
+                            </button>
+                        </div>
                     </div>
                 </div>
+
                 <div className="summary">
                     <h6>{movieDetails.name}的简介 . . . . .</h6>
                     <Summary isShowMore={true} summary={movieDetails.introduction}/>
@@ -38,5 +45,6 @@ const MovieDetails = ({movieDetails}) => {
             </div>
         </div>
     );
+
 };
 export default MovieDetails;
