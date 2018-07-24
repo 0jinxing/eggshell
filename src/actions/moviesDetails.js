@@ -1,5 +1,4 @@
 import {showAlert, closeAlert} from "./alert";
-import {startLoading, endLoading} from "./loading";
 import {addFailInternetRequest} from "./networkReconnect";
 import {movie as movieUrl} from "../url";
 export const GET_MOVIE_REQUEST = "GET_MOVIE_REQUEST";
@@ -14,7 +13,6 @@ const receiveMovieData = (movieDetail) => ({
 export const getMovieFetch = (movieId) => {
     return (dispatch) => {
         dispatch(getMovie());
-        dispatch(startLoading("加载数据中..."));
         fetch(movieUrl, {
             method: "GET",
             headers: {
@@ -22,7 +20,6 @@ export const getMovieFetch = (movieId) => {
                 "content-type": ""
             }
         }).then(resp => resp.json()).then(json => {
-            dispatch(endLoading());
             console.log(json);
             if(json.code === 1){
                 dispatch(receiveMovieData(json.data));

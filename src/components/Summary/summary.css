@@ -4,8 +4,13 @@
 }
 .summary .more{
     color: #336fa0;
+    cursor: pointer;
 }
 .summary .more:hover{
     background-color:#336fa0;
     color: white;
+}
+.summary .show{
+    display:none;
+    visibility: hidden;
 }

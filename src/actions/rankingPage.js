@@ -1,4 +1,3 @@
-import {startLoading, endLoading} from "./loading";
 import {ranking} from "../url";
 import {showAlert} from "./alert";
 import {addFailInternetRequest} from "./networkReconnect";
@@ -19,7 +18,6 @@ export const fetchGet = () => {
     return (dispatch) => {
         let requestRankingDataUrl = ranking;
         dispatch(requestRankingData());
-        dispatch(startLoading("加载数据中..."));
         fetch(requestRankingDataUrl, {
             method: "GET",
             headers: {
@@ -27,7 +25,6 @@ export const fetchGet = () => {
             }
         }).then(
             response => {
-                dispatch(endLoading());//结束加载动画
                 return  response.json();
             }
         ).then(json => {
