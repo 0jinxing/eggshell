@@ -1,5 +1,9 @@
 .review-item .user-info * {
   margin-right: 8px;
+  vertical-align: middle;
+}
+
+.review-item .user-info img {
 }
 
 .review-item .feedback {
@@ -10,6 +14,10 @@
   margin-left: 8px;
 }
 
+.review-item .user-info {
+  display: flex;
+  align-items: center;
+}
 .review-item .media-body * {
   margin-bottom: 4px;
 }
@@ -24,10 +32,4 @@
 
 .review-item .content {
   max-height: 5em;
-  overflow: hidden;
-}
-
-.review-item .content p {
-  overflow: hidden;
-  text-overflow: ellipsis;
 }

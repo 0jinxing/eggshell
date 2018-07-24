@@ -10,7 +10,7 @@ import Loading from '../containers/Loading';
 import NetworkReconnect from "../containers/NetworkReconnect";
 import MovieDetails from "../containers/MovieDtails";
 import ReviewDetail from '../containers/ReviewDetail';
-import ReviewList from '../components/ReviewList/ReviewList';
+import ReviewList from '../containers/BastReviewList';
 
 class IndexLayout extends Component {
     render() {

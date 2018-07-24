@@ -7,6 +7,7 @@ import { networkReconnect } from "./networkReconnect";
 import user from './user';
 import { movieDetails } from "./movieDetails";
 import reviewDetail from './reviewDetail';
+import review from './review';
 
 export default combineReducers({
     identity,
@@ -16,5 +17,6 @@ export default combineReducers({
     networkReconnect,
     user,
     movieDetails,
-    reviewDetail
+    reviewDetail,
+    review
 });
