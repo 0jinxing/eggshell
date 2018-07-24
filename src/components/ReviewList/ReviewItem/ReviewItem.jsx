@@ -26,8 +26,8 @@ export default class ReviewItem extends React.Component {
           </div>
           <div className="more">(<NavLink to={`/review/${movie.id}`}>展开</NavLink>)</div>
           <div className="oops">
-            <button className="btn btn-outline-primary  mr-2 my-sm-0" onClick={() => doSupport(movie.id)}>有用{support}</button>
-            <button className="btn btn-outline-danger mr-2 my-sm-0" onClick={() => doOppose(movie.id)}>没用{oppose}</button>
+            <button className="btn btn-outline-primary  mr-2 my-sm-0" onClick={() => doSupport(id)}>有用{support}</button>
+            <button className="btn btn-outline-danger mr-2 my-sm-0" onClick={() => doOppose(id)}>没用{oppose}</button>
             <span className="feedback">{respond_num}回应</span>
           </div>
         </div>

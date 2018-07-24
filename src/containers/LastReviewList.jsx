@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchBastReview, fetchSupport, fetchOppose } from '../actions/review';
+import { fetchLastReview, fetchSupport, fetchOppose } from '../actions/review';
 import ReviewList from '../components/ReviewList/ReviewList';
 
 const mapStateToProps = (state) => ({
@@ -7,7 +7,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  jumpPage: (page) => dispatch(fetchBastReview(page)),
+  jumpPage: (page) => dispatch(fetchLastReview(page)),
   doSupport: (id) => {
     dispatch(fetchSupport(id));
   },
