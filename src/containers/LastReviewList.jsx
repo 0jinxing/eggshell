@@ -3,7 +3,8 @@ import { fetchLastReview, fetchSupport, fetchOppose } from '../actions/review';
 import ReviewList from '../components/ReviewList/ReviewList';
 
 const mapStateToProps = (state) => ({
-  ...state.review
+  ...state.review,
+  title: "最新的影评"
 });
 
 const mapDispatchToProps = (dispatch) => ({
