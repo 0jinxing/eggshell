@@ -4,6 +4,10 @@ import logo from '../assets/brand/eggshell.png';
 
 class IdentityNavbar extends Component {
 
+    componentWillMount() {
+        this.props.getUserInfo();
+    }
+
     handleSearch(e) {
         e.preventDefault();
     }
@@ -17,11 +21,13 @@ class IdentityNavbar extends Component {
                     </NavLink>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" onClick={this.props.doLogout}>
+                    <a href="#" className="nav-link" onClick={() => {
+                        this.props.doLogout();
+                    }}>
                         退出
                     </a>
                 </li>
-            </ul>) || (
+            </ul >) || (
                 <ul className="navbar-nav ml-auto">
                     <li className="nav-item">
                         <NavLink to={'/identity/login'} className="nav-link">
@@ -59,7 +65,7 @@ class IdentityNavbar extends Component {
                                 </NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink to='/review/10' className="nav-link">
+                                <NavLink to='/review_list' className="nav-link">
                                     影评
                                 </NavLink>
                             </li>

@@ -8,6 +8,14 @@ export default class ReviewDetail extends React.Component {
     this.props.getReviewDetail(this.props.match.id);
   }
 
+  handleSupport = (id) => {
+    this.props.doSupport(id);
+  };
+
+  handleOppose = (id) => {
+    this.props.doOppose(id);
+  };
+
   render() {
     let { comment, createtime, id, isdelete, movie, oppose, score, support, title, userInfo } = this.props;
     let contentEl = !comment ? '' : comment.split("\n").filter(str => !!str.trim()).map((str, index) => {
@@ -33,8 +41,8 @@ export default class ReviewDetail extends React.Component {
               {contentEl}
             </div>
             <div className="oops d-flex justify-content-center">
-              <button className="btn btn-outline-primary my-2 my-sm-0">有用 {support}</button>
-              <button className="btn btn-outline-danger my-2 my-sm-0">没用 {oppose}</button>
+              <button onClick={() => this.handleSupport(this.props.match.id)} className="btn btn-outline-primary my-2 my-sm-0">有用 {support}</button>
+              <button onClick={() => this.handleOppose(this.props.match.id)} className="btn btn-outline-danger my-2 my-sm-0">没用 {oppose}</button>
             </div>
           </div>
           <div className="col-md-4 col-sm-12">

@@ -19,6 +19,8 @@ export default class People extends Component {
 
     componentWillReceiveProps(nextProps) {
         this.setState({ ...nextProps });
+        console.log(nextProps);
+        if (!nextProps.logined) this.props.history.push('/identity/login');
     }
 
     handleModify = () => {

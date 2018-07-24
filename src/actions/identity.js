@@ -71,11 +71,23 @@ export const emailInvalid = () => ({
     type: 'EMAIL_INVALID'
 });
 
+export const requestUserInfo = () => ({
+    type: 'REQUEST_USER_INFO'
+});
+
+export const getUserInfoSuccess = (data) => ({
+    type: 'GET_USER_INFO_SUCCESS',
+    ...data
+});
+
+export const getUserInfoFail = () => ({
+    type: 'GET_USER_INFO_FAIL'
+});
+
 // 异步action，登陆
 export const fetchLogin = (email, password) => {
     return (dispatch) => {
         dispatch(requestLogin());
-        dispatch(startLoading("登陆中..."));
         fetch(mUrl.login, {
             method: 'POST',
             headers: {
@@ -93,7 +105,6 @@ export const fetchLogin = (email, password) => {
                 }
                 else {
                     dispatch(loginFail(json.code, json.msg));
-                    dispatch(endLoading());
                     dispatch(showAlert(json.msg, 2000, "danger"));
                 }
             });
@@ -104,7 +115,6 @@ export const fetchLogin = (email, password) => {
 export const fetchLogout = () => {
     return (dispatch) => {
         dispatch(requestLogout());
-        dispatch(startLoading('退出中...'));
         fetch(mUrl.logout, {
             method: 'GET',
             headers: {
@@ -116,11 +126,9 @@ export const fetchLogout = () => {
             .then(json => {
                 if (json.code == 1) {
                     dispatch(logoutSuccess());
-                    dispatch(endLoading());
                     dispatch(showAlert(json.msg, 2000, "success"));
                 }
                 else {
-                    dispatch(endLoading());
                     dispatch(logoutFail());
                     dispatch(showAlert(json.msg, 2000, "danger"));
                 }
@@ -131,7 +139,6 @@ export const fetchLogout = () => {
 // 异步action，注册
 export const fetchRegister = (nickname, email, password) => {
     return (dispatch) => {
-        dispatch(startLoading("注册中..."));
         dispatch(requestRegister());
         fetch(mUrl.register, {
             method: 'POST',
@@ -144,15 +151,33 @@ export const fetchRegister = (nickname, email, password) => {
         }).then(response => response.json())
             .then(json => {
                 if (json.code == 1) {
-                    dispatch(endLoading());
                     dispatch(registerSuccess(email, json.data));
                     dispatch(showAlert(json.msg, 2000, "success"));
                 }
                 else {
-                    dispatch(endLoading());
                     dispatch(registerFail(json.code, json.msg));
                     dispatch(showAlert(json.msg, 2000, "danger"));
                 }
+            });
+    };
+};
+
+export const fetchUserInfo = () => {
+    return (dispatch) => {
+        dispatch(requestUserInfo());
+        fetch(mUrl.people, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
+            },
+            credentials: 'include'
+        }).then(response => response.json())
+            .then(json => {
+                if (json.code == 1) {
+                    dispatch(getUserInfoSuccess(json.data));
+                }
+                else dispatch(getUserInfoFail());
             });
     };
 };

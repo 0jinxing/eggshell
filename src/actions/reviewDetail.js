@@ -48,6 +48,6 @@ export const fetchSupport = (id) => {
       },
       body: `film_review_id=${id}`
     }).then(res => res.json())
-      .then(json => dispatch(support(id)));
+      .then(json => dispatch(support(json.data.support)));
   };
 };

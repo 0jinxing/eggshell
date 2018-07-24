@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchReview, fetchOppose, fetchSupport } from '../actions/review';
+import { fetchReview, fetchOppose, fetchSupport } from '../actions/reviewDetail';
 import ReviewDetail from '../components/ReviewDetail/ReviewDetail';
 
 const mapStateToProps = (state) => ({
@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(fetchSupport(id));
   },
   doOppose: (id) => {
-    dispatch(fetchSupport(id));
+    dispatch(fetchOppose(id));
   }
 });
 
