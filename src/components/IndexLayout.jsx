@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import React, {Component} from 'react';
+import {Route} from 'react-router-dom';
 import LoginForm from '../containers/LoginForm';
 import RegisterForm from '../containers/RegisterForm';
 import RankingPage from '../containers/RankingPage';
@@ -13,7 +13,6 @@ import ReviewDetail from '../containers/ReviewDetail';
 import BastReviewList from '../containers/BastReviewList';
 import LastReviewList from '../containers/LastReviewList';
 import NewReview from "../components/NewReview/NewReview";
-import Classification from '../containers/Classification';
 
 class IndexLayout extends Component {
     render() {
@@ -32,9 +31,9 @@ class IndexLayout extends Component {
                     <Route path='/classification' component={Classification} />
                     <Route exact path='/' component={LastReviewList}/>
                 </div>
-                <Loading />
-                <Alert />
-                <NetworkReconnect />
+                <Loading/>
+                <Alert/>
+                <NetworkReconnect/>
                 <div className="loader">
                 </div>
             </div>

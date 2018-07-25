@@ -5,8 +5,9 @@ import Summary from "../../Summary/Summary";
 import Scoreboard from "../Scoreboard/Scoreboard";
 import cloud_error from "../../../assets/cloud-error.png";
 import {Link} from "react-router-dom";
+import LoginForm from "../../LoginForm";
 
-const MovieDetails = ({movieDetails}) => {
+const MovieDetails = ({movieDetails, logined}) => {
     let bgi = {
         backgroundImage: `url('${movieDetails.imgurl}')`,
         width: "100%",
@@ -15,6 +16,7 @@ const MovieDetails = ({movieDetails}) => {
         backgroundPosition: "center center",
         backgroundSize: "cover"
     };
+    let gotoLoginPage = false;
     return (
         <div>
             <div className="movie-detail-box" style={bgi}>
@@ -32,7 +34,28 @@ const MovieDetails = ({movieDetails}) => {
                         <Scoreboard grade={movieDetails.grade}/>
                         <div style={{marginLeft: "10px"}}>
                             <button className="btn btn-outline-primary  mr-2 my-sm-0">
-                                <Link to={`/new_review/${movieDetails.id}`}>写影评</Link>
+                                <Link onClick={(e) => {
+                                    if (!logined) {
+                                        e.preventDefault();
+
+                                        gotoLoginPage = window.confirm("您还没有登录，去登录页？");
+                                        if (gotoLoginPage) {
+                                            window.location = `/identity/login`;
+                                        }
+                                    }
+                                }} to={
+                                    {
+                                        pathname: `/new_review/${movieDetails.id}`,
+                                        state: {
+                                            id: movieDetails.id,
+                                            imgurl: movieDetails.imgurl,
+                                            name: movieDetails.name,
+                                            grade: movieDetails.grade,
+                                            commentNum: movieDetails.comment_num,
+                                            scriptwriter: movieDetails.scriptwriter
+                                        }
+                                    }
+                                }>写影评</Link>
                             </button>
                         </div>
                     </div>
