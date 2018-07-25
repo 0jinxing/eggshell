@@ -30,18 +30,9 @@ export const fetchGet = () => {
         ).then(json => {
             console.log(json);
             if (json.code === 1) {
-                dispatch(receiveRankingDataSuccess(json.data.movies));
-                console.log(json.data.movies);
+                dispatch(receiveRankingDataSuccess(json.data.list));
             } else{
                 dispatch(showAlert(json.msg||"获取数据失败",3000,"danger"));
-            }
-        }).catch((reason) => {
-            if (navigator.online) {
-                dispatch(showAlert("获取数据失败", 3000, "danger"));
-
-            } else {
-                dispatch(showAlert("网络连接异常", 3000, "danger"));
-                dispatch(addFailInternetRequest(fetchGet));//添加失败的动作
             }
         });
     };
