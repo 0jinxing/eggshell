@@ -41,7 +41,7 @@ class IdentityNavbar extends Component {
                     </li>
                 </ul>);
         return (
-            <nav id="identity-navbar" className="navbar navbar-expand-lg navbar-light bg-light shadow-sm mb-5 bg-white rounded">
+            <nav id="identity-navbar" className="navbar navbar-expand-lg navbar-light bg-light shadow-sm mb-2 bg-white rounded">
                 <div className='container'>
                     <NavLink className="navbar-brand" to='/'>
                         <img src={logo} height="30" className="d-inline-block align-top mr-2" alt="" />
@@ -57,7 +57,9 @@ class IdentityNavbar extends Component {
                         </form>
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item">
-                                <a className="nav-link" href="#">分类</a>
+                                <NavLink to='/classification' className="nav-link">
+                                    分类
+                                </NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink to='/movie/ranking' className="nav-link">

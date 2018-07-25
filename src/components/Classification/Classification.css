@@ -1,0 +1,105 @@
+.classification .movie-list {
+  display: flex;
+  flex-flow: wrap;
+  padding-top: 24px;
+}
+
+.classification .movie-list .m-movie-item {
+  margin: 16px;
+}
+
+.filter-bar {
+  overflow: hidden;
+}
+
+.filter-bar .sort {
+  float: left;
+}
+
+.filter-bar .score {
+  float: right;
+}
+
+.filter-bar .sort button {
+  background: white;
+  outline: none;
+  border-radius: 2px;
+  border: 1px solid #cccccc;
+  color: #cccccc;
+  float: left;
+  margin-left: -1px;
+  cursor: pointer;
+}
+
+.filter-bar .sort button:first-child {
+  margin-left: 0px;
+}
+
+.filter-bar .sort button.active {
+  background: white;
+  border: 1px solid #258dcd;
+  color: #258dcd;
+  position: relative;
+  z-index: 1;
+}
+
+.filter-bar .score {
+  vertical-align: middle;
+}
+
+.filter-bar .score span {
+  color: #888888;
+  font-size: 14px;
+}
+
+.filter-bar .score input {
+  font-size: 12px;
+  border-radius: 2px;
+  border: 1px solid #cccccc;
+  width: 4em;
+  margin: 0 .2em;
+  padding-left: .2em;
+  margin-right: 8px;
+}
+
+.filter-bar .score .score-filter-btn {
+  color: #888888;
+  background: white;
+  border: 1px solid #258dcd;
+  outline: none;
+  color: #258dcd;
+  border-radius: 2px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.m-tag .styles,
+.m-tag .areas {
+  display: flex;
+  flex-flow: wrap;
+}
+
+.m-tag .styles dd,
+.m-tag .styles dt,
+.m-tag .areas dd,
+.m-tag .areas dt {
+  margin: 0 4px;
+  padding: 2px 16px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: normal;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.m-tag {
+  color: #666666;
+}
+
+.m-tag .active {
+  background: #258dcd;
+}
+
+.m-tag .active {
+  color: white;
+}

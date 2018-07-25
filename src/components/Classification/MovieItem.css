@@ -1,0 +1,24 @@
+.m-movie-item {
+  width: 115px;
+}
+
+.m-movie-item span {
+  font-size: 14px;
+}
+
+.m-movie-item .info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.m-movie-item .name {
+  color: #666666;
+}
+
+.m-movie-item .score {
+  color: #ffac2d;
+}
+
+.m-movie-item .name a {
+  color: #666666;
+}

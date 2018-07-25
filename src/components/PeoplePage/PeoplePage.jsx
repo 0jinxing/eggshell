@@ -71,7 +71,7 @@ export default class People extends Component {
 
     render() {
         return (
-            <div className='people-page'>
+            <div className='people-page mt-4'>
                 <div className="row">
                     <div className="movie-wide-item media col-md-4 col-sm-12">
                         <div className="avatar">

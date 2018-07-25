@@ -8,6 +8,7 @@ import user from './user';
 import { movieDetails } from "./movieDetails";
 import reviewDetail from './reviewDetail';
 import review from './review';
+import tag from './tag';
 
 export default combineReducers({
     identity,
@@ -18,5 +19,6 @@ export default combineReducers({
     user,
     movieDetails,
     reviewDetail,
-    review
+    review,
+    tag
 });
