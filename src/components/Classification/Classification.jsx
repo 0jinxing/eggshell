@@ -28,19 +28,19 @@ export default class Classification extends React.Component {
     if (e.target.tagName.toUpperCase() === "DL") return;
     const style = e.target.innerText.trim().includes("全部") ? '' : e.target.innerText.trim();
     this.setState({ style });
-    this.invalid();
+    setTimeout(this.invalid, 0);
   };
 
   handleArea = (e) => {
     if (e.target.tagName.toUpperCase() === "DL") return;
     const area = e.target.innerText.trim().includes("全部") ? '' : e.target.innerText.trim();
     this.setState({ area: area.trim() });
-    this.invalid();
+    setTimeout(this.invalid, 0);
   };
 
   handleSort = (sort) => {
     this.setState({ sort: sort.trim() });
-    this.invalid();
+    setTimeout(this.invalid, 0);
   };
 
   handleRange = (e) => {
