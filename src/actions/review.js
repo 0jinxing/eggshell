@@ -12,8 +12,9 @@ export const fetchBastReview = (page) => {
     fetch(`${mUrl.review_bast}?page=${page}`, {
       credentials: 'include'
     })
-      .then(res => res.json())
+      .then(response => response.ok && response.json())
       .then(json => {
+        if (!json) return;
         dispatch(getBastReview(json.data));
       });
   };
@@ -24,8 +25,9 @@ export const fetchLastReview = (page) => {
     fetch(`${mUrl.review_last}?page=${page}`, {
       credentials: 'include'
     })
-      .then(res => res.json())
+      .then(response => response.ok && response.json())
       .then(json => {
+        if (!json) return;
         dispatch(getLastReview(json.data));
       });
   };
@@ -36,8 +38,11 @@ export const fetchOppose = (id) => {
     fetch(`${mUrl.review_oppose}?film_review_id=${id}`, {
       method: 'PUT',
       credentials: 'include'
-    }).then(res => res.json())
-      .then(json => dispatch(oppose({ id, oppose: json.data })));
+    }).then(response => response.ok && response.json())
+      .then(json => {
+        if (!json) return;
+        dispatch(oppose({ id, oppose: json.data }));
+      });
   };
 };
 
@@ -46,7 +51,10 @@ export const fetchSupport = (id) => {
     fetch(`${mUrl.review_support}?film_review_id=${id}`, {
       method: 'PUT',
       credentials: 'include'
-    }).then(res => res.json())
-      .then(json => dispatch(support({ id, support: json.data })));
+    }).then(response => response.ok && response.json())
+      .then(json => {
+        if (!json) return;
+        dispatch(support({ id, support: json.data }));
+      });
   };
 };

@@ -17,8 +17,9 @@ export const fetchReview = (id) => {
         'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
       },
       credentials: 'include'
-    }).then(response => response.json())
+    }).then(response => response.ok && response.json())
       .then(json => {
+        if (!json) return;
         dispatch(getReview(json.data));
       });
   };
@@ -29,8 +30,11 @@ export const fetchOppose = (id) => {
     fetch(`${mUrl.review_oppose}?film_review_id=${id}`, {
       method: 'PUT',
       credentials: 'include'
-    }).then(res => res.json())
-      .then(json => dispatch(oppose(json.data)));
+    }).then(response => response.ok && response.json())
+      .then(json => {
+        if (!json) return;
+        dispatch(oppose(json.data));
+      });
   };
 };
 
@@ -39,7 +43,10 @@ export const fetchSupport = (id) => {
     fetch(`${mUrl.review_support}?film_review_id=${id}`, {
       method: 'PUT',
       credentials: 'include'
-    }).then(res => res.json())
-      .then(json => dispatch(support(json.data)));
+    }).then(response => response.ok && response.json())
+      .then(json => {
+        if (!json) return;
+        dispatch(support(json.data));
+      });
   };
 };

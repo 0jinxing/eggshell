@@ -32,8 +32,9 @@ export const fetchUserInfo = () => {
         'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
       },
       credentials: 'include'
-    }).then(response => response.json())
+    }).then(response => response.ok && response.json())
       .then(json => {
+        if (!json) return;
         if (json.code == 1) {
           dispatch(getUserInfoSuccess(json.data));
         }
@@ -60,8 +61,9 @@ export const modifyUserInfo = (nickname, introduction, sex, role, createtime, em
       credentials: "include",
       body: data
     })
-      .then(response => response.json())
+      .then(response => response.ok && response.json())
       .then(json => {
+        if (!json) return;
         dispatch(modifyUserInfoSuccess(json.data));
       });
   };

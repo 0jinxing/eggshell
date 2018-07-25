@@ -96,8 +96,9 @@ export const fetchLogin = (email, password) => {
             },
             body: `email=${email}&password=${password}`,
             credentials: 'include'
-        }).then(response => response.json())
+        }).then(response => response.ok && response.json())
             .then(json => {
+                if (!json) return;
                 if (json.code == 1) {
                     dispatch(loginSuccess(email, json.data));
                     dispatch(endLoading());
@@ -122,8 +123,9 @@ export const fetchLogout = () => {
                 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
             },
             credentials: 'include'
-        }).then(response => response.json())
+        }).then(response => response.ok && response.json())
             .then(json => {
+                if (!json) return;
                 if (json.code == 1) {
                     dispatch(logoutSuccess());
                     dispatch(showAlert(json.msg, 2000, "success"));
@@ -148,8 +150,9 @@ export const fetchRegister = (nickname, email, password) => {
             },
             body: `nickname=${nickname}&email=${email}&password=${password}`,
             credentials: 'include'
-        }).then(response => response.json())
+        }).then(response => response.ok && response.json())
             .then(json => {
+                if (!json) return;
                 if (json.code == 1) {
                     dispatch(registerSuccess(email, json.data));
                     dispatch(showAlert(json.msg, 2000, "success"));
@@ -169,15 +172,16 @@ export const fetchUserInfo = () => {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
             },
             credentials: 'include'
-        }).then(response => response.json())
+        }).then(response => response.ok && response.json())
             .then(json => {
+                if (!json) return;
                 if (json.code == 1) {
                     dispatch(getUserInfoSuccess(json.data));
                 }
                 else dispatch(getUserInfoFail());
             });
+
     };
 };
