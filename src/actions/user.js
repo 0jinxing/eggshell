@@ -38,7 +38,7 @@ export const fetchUserInfo = () => {
         if (json.code == 1) {
           dispatch(getUserInfoSuccess(json.data));
         }
-      });
+      }).catch(response => { return; });
   };
 };
 
@@ -65,6 +65,6 @@ export const modifyUserInfo = (nickname, introduction, sex, role, createtime, em
       .then(json => {
         if (!json) return;
         dispatch(modifyUserInfoSuccess(json.data));
-      });
+      }).catch(response => { return; });
   };
 };

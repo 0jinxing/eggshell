@@ -16,7 +16,7 @@ export const fetchBastReview = (page) => {
       .then(json => {
         if (!json) return;
         dispatch(getBastReview(json.data));
-      });
+      }).catch(response => { return; });
   };
 };
 
@@ -29,7 +29,7 @@ export const fetchLastReview = (page) => {
       .then(json => {
         if (!json) return;
         dispatch(getLastReview(json.data));
-      });
+      }).catch(response => { return; });
   };
 };
 
@@ -42,7 +42,7 @@ export const fetchOppose = (id) => {
       .then(json => {
         if (!json) return;
         dispatch(oppose({ id, oppose: json.data }));
-      });
+      }).catch(response => { return; });
   };
 };
 
@@ -55,6 +55,6 @@ export const fetchSupport = (id) => {
       .then(json => {
         if (!json) return;
         dispatch(support({ id, support: json.data }));
-      });
+      }).catch(response => { return; });
   };
 };

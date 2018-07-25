@@ -21,7 +21,7 @@ export const fetchReview = (id) => {
       .then(json => {
         if (!json) return;
         dispatch(getReview(json.data));
-      });
+      }).catch(response => { return; });
   };
 };
 
@@ -34,7 +34,7 @@ export const fetchOppose = (id) => {
       .then(json => {
         if (!json) return;
         dispatch(oppose(json.data));
-      });
+      }).catch(response => { return; });
   };
 };
 
@@ -47,6 +47,6 @@ export const fetchSupport = (id) => {
       .then(json => {
         if (!json) return;
         dispatch(support(json.data));
-      });
+      }).catch(response => { return; });
   };
 };

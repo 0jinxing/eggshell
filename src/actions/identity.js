@@ -108,7 +108,7 @@ export const fetchLogin = (email, password) => {
                     dispatch(loginFail(json.code, json.msg));
                     dispatch(showAlert(json.msg, 2000, "danger"));
                 }
-            });
+            }).catch(response => { return; });
     };
 };
 
@@ -134,6 +134,8 @@ export const fetchLogout = () => {
                     dispatch(logoutFail());
                     dispatch(showAlert(json.msg, 2000, "danger"));
                 }
+            }).catch(response => {
+                return;
             });
     };
 };
@@ -161,7 +163,7 @@ export const fetchRegister = (nickname, email, password) => {
                     dispatch(registerFail(json.code, json.msg));
                     dispatch(showAlert(json.msg, 2000, "danger"));
                 }
-            });
+            }).catch(response => { return; });
     };
 };
 
@@ -181,7 +183,7 @@ export const fetchUserInfo = () => {
                     dispatch(getUserInfoSuccess(json.data));
                 }
                 else dispatch(getUserInfoFail());
-            });
+            }).catch(response => { return; });
 
     };
 };
