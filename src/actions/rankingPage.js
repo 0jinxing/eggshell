@@ -22,7 +22,8 @@ export const fetchGet = () => {
             method: "GET",
             headers: {
                 "Accept": 'application/json'
-            }
+            },
+            credentials: 'include'
         }).then(
             response => {
                 return  response.json();
@@ -34,6 +35,6 @@ export const fetchGet = () => {
             } else{
                 dispatch(showAlert(json.msg||"获取数据失败",3000,"danger"));
             }
-        });
+        }).catch((e)=>{});
     };
 };

@@ -16,15 +16,18 @@ class MovieDetails extends Component {
 
     render() {
         return (
-            <Details movieDetails={this.props.movieDetails}/>
-        );
+            <Details movieDetails={this.props.movieDetails}
+                     logined={this.props.logined}/>
+        )
+            ;
     }
 }
 
 export default connect(
     state => {
         return {
-            movieDetails:state.movieDetails
+            movieDetails: state.movieDetails,
+            logined: state.identity.logined
         };
     }
 )(MovieDetails);

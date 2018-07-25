@@ -13,12 +13,12 @@ const receiveMovieData = (movieDetail) => ({
 export const getMovieFetch = (movieId) => {
     return (dispatch) => {
         dispatch(getMovie());
-        fetch(movieUrl, {
+        fetch(movieUrl.concat(`/${movieId}`), {
             method: "GET",
             headers: {
                 "Accept": "application/json",
-                "content-type": ""
-            }
+            },
+            credentials: 'include'
         }).then(resp => resp.json()).then(json => {
             console.log(json);
             if(json.code === 1){
