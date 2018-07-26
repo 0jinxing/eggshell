@@ -24,7 +24,7 @@ export default class ReviewDetail extends React.Component {
   };
 
   handleResponse = (comment) => {
-    if(!comment.trim()) return;
+    if (!comment.trim()) return;
     this.props.addResponse(this.props.match.params.id, comment);
     this.props.getResponse(this.props.match.params.id, this.props.cur_page);
   }
@@ -67,33 +67,35 @@ export default class ReviewDetail extends React.Component {
                 </div>
               ))
             }
-            <nav className="mt-4">
-              <ul className="pagination justify-content-center">
-                <li className={classnames({
-                  "page-item": true,
-                  "disabled": this.props.cur_page <= 1
-                })} onClick={() => this.handlePage(Math.max(this.props.cur_page - 1, 1))}>
-                  <a className="page-link" href="#" tabIndex="-1">Previous</a>
-                </li>
-                {
-                  [...Array(this.props.total_page).keys()].slice(0, this.props.total_page).map((num, index) => (
-                    <li key={index} className={classnames({
-                      "page-item": true,
-                      "disabled": this.props.cur_page == num + 1
-                    })} onClick={() => this.handlePage(num + 1)}><a className="page-link" href="#">{num + 1}</a></li>
-                  ))
-                }
-                <li className={classnames({
-                  "page-item": true,
-                  "disabled": this.props.cur_page == this.props.total_page
-                })} onClick={() => this.handlePage(Math.min(this.props.cur_page + 1, this.props.total_page))}>
-                  <a className="page-link" href="#">Next</a>
-                </li>
-              </ul>
-            </nav>
+            {
+              !!this.props.list && !!this.props.list.length && (<nav className="mt-4">
+                <ul className="pagination justify-content-center">
+                  <li className={classnames({
+                    "page-item": true,
+                    "disabled": this.props.cur_page <= 1
+                  })} onClick={() => this.handlePage(Math.max(this.props.cur_page - 1, 1))}>
+                    <a className="page-link" href="#" tabIndex="-1">Previous</a>
+                  </li>
+                  {
+                    [...Array(this.props.total_page).keys()].slice(Math.max(this.props.cur_page - 1, this.props.total_page - 5), Math.min(this.props.cur_page + 5, this.props.total_page)).map((num, index) => (
+                      <li key={index} className={classnames({
+                        "page-item": true,
+                        "disabled": this.props.cur_page == num + 1
+                      })} onClick={() => this.handlePage(num + 1)}><a className="page-link" href="#">{num + 1}</a></li>
+                    ))
+                  }
+                  <li className={classnames({
+                    "page-item": true,
+                    "disabled": this.props.cur_page >= this.props.total_page
+                  })} onClick={() => this.handlePage(Math.min(this.props.cur_page + 1, this.props.total_page))}>
+                    <a className="page-link" href="#">Next</a>
+                  </li>
+                </ul>
+              </nav>)
+            }
 
 
-            <div className="comment-review-input">
+            <div className="comment-review-input mt-4">
               <input type="text" className="form-control mr-2" placeholder="输入回复的内容" ref="responseInput" />
               {
                 this.props.logined && <button onClick={() => this.handleResponse(this.refs.responseInput.value)} className="btn btn-outline-info">回复</button> ||

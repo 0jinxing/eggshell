@@ -10,6 +10,7 @@ import reviewDetail from './reviewDetail';
 import review from './review';
 import tag from './tag';
 import response from './response';
+import search from './search';
 import ratingEditorStart from "./ratingEditorStar";
 
 export default combineReducers({
@@ -24,5 +25,6 @@ export default combineReducers({
     review,
     tag,
     response,
+    search,
     ratingEditorStart
 });

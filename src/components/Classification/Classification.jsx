@@ -119,7 +119,7 @@ export default class Classification extends React.Component {
               <a className="page-link" href="#" tabIndex="-1">Previous</a>
             </li>
             {
-              [...Array(this.props.total_page).keys()].slice(0, this.props.total_page).map((num, index) => (
+              [...Array(this.props.total_page).keys()].slice(Math.max(this.props.cur_page - 1, this.props.total_page - 5), Math.min(this.props.cur_page + 5, this.props.total_page)).map((num, index) => (
                 <li key={index} className={classnames({
                   "page-item": true,
                   "disabled": this.props.cur_page == num + 1

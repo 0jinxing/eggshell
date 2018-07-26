@@ -14,6 +14,7 @@ import BastReviewList from '../containers/BastReviewList';
 import LastReviewList from '../containers/LastReviewList';
 import NewReview from "../containers/NewReview";
 import Classification from "../containers/Classification";
+import SearchPage from '../containers/SearchPage';
 
 class IndexLayout extends Component {
     render() {
@@ -31,6 +32,7 @@ class IndexLayout extends Component {
                     <Route path='/new_review/:id' component={NewReview} />
                     <Route path='/classification' component={Classification} />
                     <Route exact path='/' component={LastReviewList}/>
+                    <Route path='/search/:kw' component={SearchPage}/>
                 </div>
                 <Loading/>
                 <Alert/>
