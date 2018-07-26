@@ -15,7 +15,7 @@ class NewReview extends Component {
             title: "",
             startNum: 0,
             comment: "",
-            hadScored:false
+            hadScored: false
         };
         this.fetchPostNewReview = (newReviewData) => {
             this.props.dispatch(fetchPostNewReview(newReviewData));
@@ -40,7 +40,7 @@ class NewReview extends Component {
                         this.props.dispatch(showAlert("你还没有评分，或者评分不能为0", 3000, "danger"));
                     } else {
                         this.fetchPostNewReview(obj);
-                        this.fetchPostScore(this.state.startNum,this.state.id);
+                        this.fetchPostScore(this.state.startNum, this.state.id);
                     }
                 }
             }
@@ -68,7 +68,7 @@ class NewReview extends Component {
             <div className="new_review">
                 <div className="movie-card"><MovieCard {...this.state}/></div>
                 <div className="ratingEditorStart">
-                    <RatingEditorStart hadScored={this.state.hadScored}  startNum={this.state.startNum}
+                    <RatingEditorStart hadScored={this.state.hadScored} startNum={this.state.startNum}
                                        handelGetStartNum={(startNum => {
                                            this.setState({
                                                startNum: startNum
@@ -77,13 +77,13 @@ class NewReview extends Component {
                     /></div>
                 <div className="new_review_title">
                     <input placeholder="请输入标题"
-                           onChange={e => (this.setState({comment: e.target.value}))}/>
+                           onChange={e => (this.setState({title: e.target.value}))}/>
                 </div>
                 <hr/>
 
                 <div className="new_review_comment">
                     <textarea placeholder="输入你的评论..."
-                              onChange={e => (this.setState({title: e.target.value}))}>
+                              onChange={e => (this.setState({comment: e.target.value}))}>
                     </textarea>
                     <button onClick={this.submit}>提交
                     </button>

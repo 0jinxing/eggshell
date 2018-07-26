@@ -22,6 +22,7 @@ export const fetchPostScore = (score, movieId) => {
                 'accept': 'application/json',
                 'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
             },
+            credentials: 'include',
             body: str
         })
             .then(resp => resp.json())
