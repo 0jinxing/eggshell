@@ -9,6 +9,7 @@ import { movieDetails } from "./movieDetails";
 import reviewDetail from './reviewDetail';
 import review from './review';
 import tag from './tag';
+import response from './response';
 
 export default combineReducers({
     identity,
@@ -20,5 +21,6 @@ export default combineReducers({
     movieDetails,
     reviewDetail,
     review,
-    tag
+    tag,
+    response
 });

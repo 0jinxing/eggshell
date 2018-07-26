@@ -1,4 +1,5 @@
 import { createAction } from 'redux-actions';
+import { showAlert } from './alert';
 import * as mUrl from '../url';
 
 export const getBastReview = createAction("GET_BAST_REVIEW", data => data);
@@ -15,6 +16,7 @@ export const fetchBastReview = (page) => {
       .then(response => response.ok && response.json())
       .then(json => {
         if (!json) return;
+        if (json.code != 1) dispatch(showAlert(json.msg, 2000, "danger"));
         dispatch(getBastReview(json.data));
       }).catch(response => { return; });
   };
@@ -28,6 +30,7 @@ export const fetchLastReview = (page) => {
       .then(response => response.ok && response.json())
       .then(json => {
         if (!json) return;
+        if (json.code != 1) dispatch(showAlert(json.msg, 2000, "danger"));
         dispatch(getLastReview(json.data));
       }).catch(response => { return; });
   };
@@ -41,6 +44,7 @@ export const fetchOppose = (id) => {
     }).then(response => response.ok && response.json())
       .then(json => {
         if (!json) return;
+        if (json.code != 1) dispatch(showAlert(json.msg, 2000, "danger"));
         dispatch(oppose({ id, oppose: json.data }));
       }).catch(response => { return; });
   };
@@ -54,6 +58,7 @@ export const fetchSupport = (id) => {
     }).then(response => response.ok && response.json())
       .then(json => {
         if (!json) return;
+        if (json.code != 1) dispatch(showAlert(json.msg, 2000, "danger"));
         dispatch(support({ id, support: json.data }));
       }).catch(response => { return; });
   };
