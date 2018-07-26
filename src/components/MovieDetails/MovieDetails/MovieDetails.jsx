@@ -36,16 +36,14 @@ const MovieDetails = ({movieDetails, logined}) => {
                             <button className="btn btn-outline-primary  mr-2 my-sm-0">
                                 <Link onClick={(e) => {
                                     if (!logined) {
-                                        e.preventDefault();
-
                                         gotoLoginPage = window.confirm("您还没有登录，去登录页？");
-                                        if (gotoLoginPage) {
-                                            window.location = `/identity/login`;
+                                        if (!gotoLoginPage) {
+                                            e.preventDefault();
                                         }
                                     }
                                 }} to={
                                     {
-                                        pathname: `/new_review/${movieDetails.id}`,
+                                        pathname: `${logined ? "/new_review/" + movieDetails.id : "/identity/login"}`,
                                         state: {
                                             id: movieDetails.id,
                                             imgurl: movieDetails.imgurl,
