@@ -3,13 +3,16 @@ import "./ratingEditorStart.css";
 
 class RatingEditorStar extends Component {
     constructor(props) {
-        console.log(props);
         super(props);
         this.state = {
-            startNum: 0
+            startNum: props.startNum / 2 || 0,
+            hadScored: props.hadScored || false
         };
-
         this.handelSelected = (e) => {
+            if (this.state.hadScored) {
+                console.log("已经投过怕票了");
+                return;
+            }
             let position = e.clientX - e.target.offsetLeft;
             let index = Math.floor(position / 11) + 1;
             this.setState({
@@ -18,7 +21,7 @@ class RatingEditorStar extends Component {
             this.props.handelGetStartNum(index);
         };
         this.getData = () => {
-            let arr = ["很差", "较差", "还行", "推荐", "力荐"];
+            let arr = ["力荐", "很差", "较差", "还行", "推荐"];
             return arr[(this.state.startNum || 0) % 5];
         };
     }
