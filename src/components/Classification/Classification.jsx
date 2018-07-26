@@ -25,14 +25,12 @@ export default class Classification extends React.Component {
   }
 
   handleStyle = (e) => {
-    if (e.target.tagName.toUpperCase() === "DL") return;
     const style = e.target.innerText.trim().includes("全部") ? '' : e.target.innerText.trim();
     this.setState({ style });
     setTimeout(this.invalid, 0);
   };
 
   handleArea = (e) => {
-    if (e.target.tagName.toUpperCase() === "DL") return;
     const area = e.target.innerText.trim().includes("全部") ? '' : e.target.innerText.trim();
     this.setState({ area: area.trim() });
     setTimeout(this.invalid, 0);
@@ -58,7 +56,7 @@ export default class Classification extends React.Component {
 
   invalid = () => {
     let { style, area, sort, page, min, max } = this.state;
-    let tags = !style ? area : `${style},${area}`;
+    let tags = !style ? area : `${style}${!!style && !!area ? ',' : ''}${area}`;
     this.props.getMovieForTag(sort, `${min},${max}`, tags, page);
   };
 
@@ -107,6 +105,9 @@ export default class Classification extends React.Component {
             (!this.props.list ? [] : this.props.list).map((movie, index) => {
               return <MovieItem key={index} {...movie} />;
             })
+          }
+          {
+            (!this.props.list || !this.props.list.length) ? (<span className="font-weight-light">没有内容</span>) : ''
           }
         </div>
         <nav className="mt-4">
