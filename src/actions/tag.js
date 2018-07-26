@@ -23,7 +23,10 @@ export const fetchMovieForTag = (sort = '', range = '', tags = '', page = '') =>
   const query = `sort=${sort}&range=${range}&tags=${tags}&page=${page}`;
   return (dispatch) => {
     fetch(`${mUrl.get_movie_for_tag}?${query}`)
-      .then(res => res.json())
-      .then(json => dispatch(getMovieForTag(json.data)));
+      .then(res => res.ok&&res.json())
+      .then(json =>{ 
+        if(!json) return;
+        dispatch(getMovieForTag(json.data));
+      }).catch();
   };
 };

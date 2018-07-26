@@ -26,7 +26,7 @@ export default class ReviewDetail extends React.Component {
   handleResponse = (comment) => {
     if (!comment.trim()) return;
     this.props.addResponse(this.props.match.params.id, comment);
-    this.props.getResponse(this.props.match.params.id, this.props.cur_page);
+    this.props.getResponse(this.props.match.params.id, this.props.cur_page || 1);
   }
 
   render() {
@@ -74,10 +74,10 @@ export default class ReviewDetail extends React.Component {
                     "page-item": true,
                     "disabled": this.props.cur_page <= 1
                   })} onClick={() => this.handlePage(Math.max(this.props.cur_page - 1, 1))}>
-                    <a className="page-link" href="#" tabIndex="-1">Previous</a>
+                    <button className="page-link" href="#" tabIndex="-1">Previous</button>
                   </li>
                   {
-                    [...Array(this.props.total_page).keys()].slice(Math.max(this.props.cur_page - 1, this.props.total_page - 5), Math.min(this.props.cur_page + 5, this.props.total_page)).map((num, index) => (
+                    [...Array(this.props.total_page).keys()].slice(Math.max(Math.min(this.props.cur_page - 1, this.props.total_page - 5), 0), Math.min(this.props.cur_page + 5, this.props.total_page)).map((num, index) => (
                       <li key={index} className={classnames({
                         "page-item": true,
                         "disabled": this.props.cur_page == num + 1
@@ -88,7 +88,7 @@ export default class ReviewDetail extends React.Component {
                     "page-item": true,
                     "disabled": this.props.cur_page >= this.props.total_page
                   })} onClick={() => this.handlePage(Math.min(this.props.cur_page + 1, this.props.total_page))}>
-                    <a className="page-link" href="#">Next</a>
+                    <button className="page-link" href="#">Next</button>
                   </li>
                 </ul>
               </nav>)

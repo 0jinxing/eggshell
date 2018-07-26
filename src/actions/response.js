@@ -33,6 +33,6 @@ export const fetchPostResponse = (film_review_id, comment) => {
       .then(json => {
         if (!json) return;
         if (json.code != 1) dispatch(showAlert(json.msg, 2000, "danger"));
-      });
+      }).catch();
   };
 };

@@ -17,7 +17,7 @@ export default class ReviewItem extends React.Component {
           <div className="user-info">
             <img src={!userInfo ? '' : userInfo.imgurl} width="24" alt="" />
             <a href="#">{!userInfo ? '' : userInfo.nickname}</a>
-            <Rating grade={score} />
+            <Rating grade={score.star} />
             <span>{createtime}</span>
           </div>
           <NavLink to={`/review/${id}`}>{title}</NavLink>
