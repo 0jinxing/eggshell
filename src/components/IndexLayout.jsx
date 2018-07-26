@@ -12,8 +12,8 @@ import MovieDetails from "../containers/MovieDtails";
 import ReviewDetail from '../containers/ReviewDetail';
 import BastReviewList from '../containers/BastReviewList';
 import LastReviewList from '../containers/LastReviewList';
-import NewReview from "../components/NewReview/NewReview";
-import Classification from '../containers/Classification';
+import NewReview from "../containers/NewReview";
+import Classification from "../containers/Classification";
 
 class IndexLayout extends Component {
     render() {
