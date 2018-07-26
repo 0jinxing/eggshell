@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import { NavLink } from 'react-router-dom';
 import './ReviewDetail.css';
 import Rating from './Rating/Rating';
 
@@ -21,6 +22,12 @@ export default class ReviewDetail extends React.Component {
   handlePage = (page) => {
     this.props.getResponse(this.props.match.params.id, page);
   };
+
+  handleResponse = (comment) => {
+    if(!comment.trim()) return;
+    this.props.addResponse(this.props.match.params.id, comment);
+    this.props.getResponse(this.props.match.params.id, this.props.cur_page);
+  }
 
   render() {
     let { comment, createtime, id, isdelete, movie, oppose, score, support, title, userInfo } = this.props;
@@ -87,8 +94,11 @@ export default class ReviewDetail extends React.Component {
 
 
             <div className="comment-review-input">
-              <input type="text" className="form-control mr-2" placeholder="输入回复的内容" />
-              <a href="" className="btn btn-outline-info">回复</a>
+              <input type="text" className="form-control mr-2" placeholder="输入回复的内容" ref="responseInput" />
+              {
+                this.props.logined && <button onClick={() => this.handleResponse(this.refs.responseInput.value)} className="btn btn-outline-info">回复</button> ||
+                <NavLink to="/identity/login" className="btn btn-outline-info">回复</NavLink>
+              }
             </div>
 
 

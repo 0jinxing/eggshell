@@ -22,7 +22,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   getResponse: (id, page) => {
     dispatch(fetchGetResponse(id, page));
+  },
+  addResponse: (id, comment) => {
+    dispatch(fetchPostResponse(id, comment));
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ReviewDetail);
+export default connect(mapStateToProps, mapDispatchToProps, undefined, { pure: false })(ReviewDetail);
