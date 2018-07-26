@@ -5,7 +5,13 @@ const tag = handleActions({
     return { ...state, ...action.payload };
   },
   'GET_MOVIE_FOR_TAG': (state, action) => {
-    return { ...state, ...{ list: [] }, ...action.payload };
+    return {
+      ...state,
+      ...{ list: [] },
+      cur_page: 1,
+      total_page: 0,
+      ...action.payload
+    };
   }
 }, {});
 

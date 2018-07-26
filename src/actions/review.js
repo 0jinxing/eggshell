@@ -18,7 +18,7 @@ export const fetchBastReview = (page) => {
         if (!json) return;
         if (json.code != 1) dispatch(showAlert(json.msg, 2000, "danger"));
         dispatch(getBastReview(json.data));
-      }).catch(response => { return; });
+      }).catch();
   };
 };
 
@@ -32,7 +32,7 @@ export const fetchLastReview = (page) => {
         if (!json) return;
         if (json.code != 1) dispatch(showAlert(json.msg, 2000, "danger"));
         dispatch(getLastReview(json.data));
-      }).catch(response => { return; });
+      }).catch();
   };
 };
 

@@ -110,30 +110,32 @@ export default class Classification extends React.Component {
             (!this.props.list || !this.props.list.length) ? (<span className="font-weight-light">没有内容</span>) : ''
           }
         </div>
-        <nav className="mt-4">
-          <ul className="pagination justify-content-center">
-            <li className={classnames({
-              "page-item": true,
-              "disabled": this.props.cur_page <= 1
-            })} onClick={() => this.handlePage(Math.max(this.props.cur_page - 1, 1))}>
-              <a className="page-link" href="#" tabIndex="-1">Previous</a>
-            </li>
-            {
-              [...Array(this.props.total_page).keys()].slice(Math.max(this.props.cur_page - 1, this.props.total_page - 5), Math.min(this.props.cur_page + 5, this.props.total_page)).map((num, index) => (
-                <li key={index} className={classnames({
-                  "page-item": true,
-                  "disabled": this.props.cur_page == num + 1
-                })} onClick={() => this.handlePage(num + 1)}><a className="page-link" href="#">{num + 1}</a></li>
-              ))
-            }
-            <li className={classnames({
-              "page-item": true,
-              "disabled": this.props.cur_page == this.props.total_page
-            })} onClick={() => this.handlePage(Math.min(this.props.cur_page + 1, this.props.total_page))}>
-              <a className="page-link" href="#">Next</a>
-            </li>
-          </ul>
-        </nav>
+        {
+          !!this.props.list && !!this.props.list.length && (<nav className="mt-4">
+            <ul className="pagination justify-content-center">
+              <li className={classnames({
+                "page-item": true,
+                "disabled": this.props.cur_page <= 1
+              })} onClick={() => this.handlePage(Math.max(this.props.cur_page - 1, 1))}>
+                <button className="page-link" href="#" tabIndex="-1">Previous</button>
+              </li>
+              {
+                [...Array(this.props.total_page).keys()].slice(Math.max(Math.min(this.props.cur_page - 1, this.props.total_page - 5), 0), Math.min(this.props.cur_page + 5, this.props.total_page)).map((num, index) => (
+                  <li key={index} className={classnames({
+                    "page-item": true,
+                    "disabled": this.props.cur_page == num + 1
+                  })} onClick={() => this.handlePage(num + 1)}><a className="page-link" href="#">{num + 1}</a></li>
+                ))
+              }
+              <li className={classnames({
+                "page-item": true,
+                "disabled": this.props.cur_page == this.props.total_page
+              })} onClick={() => this.handlePage(Math.min(this.props.cur_page + 1, this.props.total_page))}>
+                <button className="page-link" href="#">Next</button>
+              </li>
+            </ul>
+          </nav>)
+        }
       </div>
     );
   }
