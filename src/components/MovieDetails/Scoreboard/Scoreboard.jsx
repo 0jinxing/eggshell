@@ -36,7 +36,7 @@ const Scoreboard = ({
                 <p>
                     <span className="num-start">5星</span>
                     <span className="percent-bar" style={{
-                        width: counter(scoreDetail.five_star)+3+"px"
+                        width: counter(scoreDetail.five_star) + 3 + "px"
                     }
                     }/>
                     <span>{counter(scoreDetail.five_star)}%</span>
@@ -44,28 +44,28 @@ const Scoreboard = ({
                 <p>
                     <span>4星</span>
                     <span className="percent-bar" style={{
-                        width: counter(scoreDetail.four_star)+3+"px"
+                        width: counter(scoreDetail.four_star) + 3 + "px"
                     }}/>
                     <span>{counter(scoreDetail.four_star)}%</span>
                 </p>
                 <p>
                     <span>3星</span>
                     <span className="percent-bar" style={{
-                        width: counter(scoreDetail.three_star)+3+"px"
+                        width: counter(scoreDetail.three_star) + 3 + "px"
                     }}/>
                     <span>{counter(scoreDetail.three_star)}%</span>
                 </p>
                 <p>
                     <span>2星</span>
                     <span className="percent-bar" style={{
-                        width: counter(scoreDetail.two_star)+3+"px"
+                        width: counter(scoreDetail.two_star) + 3 + "px"
                     }}/>
                     <span>{counter(scoreDetail.two_star)}%</span>
                 </p>
                 <p>
                     <span>1星</span>
                     <span className="percent-bar" style={{
-                        width: counter(scoreDetail.one_star)+3+"px"
+                        width: counter(scoreDetail.one_star) + 3 + "px"
                     }}/>
                     <span>{counter(scoreDetail.one_star)}%</span>
                 </p>
