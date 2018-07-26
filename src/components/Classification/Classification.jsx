@@ -28,19 +28,19 @@ export default class Classification extends React.Component {
     if (e.target.tagName.toUpperCase() === "DL") return;
     const style = e.target.innerText.trim().includes("全部") ? '' : e.target.innerText.trim();
     this.setState({ style });
-    this.invalid();
+    setTimeout(this.invalid, 0);
   };
 
   handleArea = (e) => {
     if (e.target.tagName.toUpperCase() === "DL") return;
     const area = e.target.innerText.trim().includes("全部") ? '' : e.target.innerText.trim();
     this.setState({ area: area.trim() });
-    this.invalid();
+    setTimeout(this.invalid, 0);
   };
 
   handleSort = (sort) => {
     this.setState({ sort: sort.trim() });
-    this.invalid();
+    setTimeout(this.invalid, 0);
   };
 
   handleRange = (e) => {
@@ -53,7 +53,7 @@ export default class Classification extends React.Component {
     this.setState({
       page: Math.min(Math.max(0, page), this.props.total_page),
     });
-    this.invalid();
+    setTimeout(this.invalid, 0);
   };
 
   invalid = () => {
@@ -114,7 +114,7 @@ export default class Classification extends React.Component {
             <li className={classnames({
               "page-item": true,
               "disabled": this.props.cur_page <= 1
-            })} onClick={() => this.handlePage(Math.max(this.props.cur_page), 1)}>
+            })} onClick={() => this.handlePage(Math.max(this.props.cur_page - 1, 1))}>
               <a className="page-link" href="#" tabIndex="-1">Previous</a>
             </li>
             {
@@ -128,7 +128,7 @@ export default class Classification extends React.Component {
             <li className={classnames({
               "page-item": true,
               "disabled": this.props.cur_page == this.props.total_page
-            })} onClick={() => this.handlePage(Math.min(this.props.cur_page + 1), this.props.total_page)}>
+            })} onClick={() => this.handlePage(Math.min(this.props.cur_page + 1, this.props.total_page))}>
               <a className="page-link" href="#">Next</a>
             </li>
           </ul>

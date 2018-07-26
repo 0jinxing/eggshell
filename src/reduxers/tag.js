@@ -5,7 +5,7 @@ const tag = handleActions({
     return { ...state, ...action.payload };
   },
   'GET_MOVIE_FOR_TAG': (state, action) => {
-    return { ...state, ...action.payload };
+    return { ...state, ...{ list: [] }, ...action.payload };
   }
 }, {});
 
