@@ -4,9 +4,19 @@ import MovieItem from '../Classification/MovieItem';
 import './SearchPage.css';
 
 export default class SearchPage extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   componentWillMount() {
     this.props.doSearch(this.props.match.params.kw, 1);
   }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.match.params.kw != this.props.match.params.kw) {
+      this.props.doSearch(nextProps.match.params.kw, 1);
+    }
+  }
+
   render() {
     return (
       <div className="search-page">
@@ -46,7 +56,7 @@ export default class SearchPage extends React.Component {
                 }} >Next</button>
               </li>
             </ul>
-          </nav>)
+          </nav>) || (<span className="font-weight-light">没有内容</span>)
         }
       </div>);
   }
