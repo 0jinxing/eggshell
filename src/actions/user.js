@@ -1,4 +1,5 @@
 import * as mUrl from '../url';
+import { showAlert } from './alert';
 
 export const requestUserInfo = () => ({
   type: 'REQUEST_USER_INFO'
@@ -65,6 +66,7 @@ export const modifyUserInfo = (nickname, introduction, sex, role, createtime, em
       .then(json => {
         if (!json) return;
         dispatch(modifyUserInfoSuccess(json.data));
+        dispatch(showAlert(json.msg, 2000, "success"));
       }).catch(response => { return; });
   };
 };
