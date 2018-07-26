@@ -1,13 +1,14 @@
 import React from 'react';
+import classnames from 'classnames';
+import { NavLink } from 'react-router-dom';
 import './ReviewDetail.css';
 import Rating from './Rating/Rating';
-import CommentItemForReview from '../CommentForReview/CommentItemForReview';
-import CommentForReviewInput from '../CommentForReview/CommentForReviewInput';
 
 export default class ReviewDetail extends React.Component {
 
   componentWillMount() {
     this.props.getReviewDetail(this.props.match.params.id);
+    this.props.getResponse(this.props.match.params.id, 1);
   }
 
   handleSupport = (id) => {
@@ -17,6 +18,16 @@ export default class ReviewDetail extends React.Component {
   handleOppose = (id) => {
     this.props.doOppose(id);
   };
+
+  handlePage = (page) => {
+    this.props.getResponse(this.props.match.params.id, page);
+  };
+
+  handleResponse = (comment) => {
+    if(!comment.trim()) return;
+    this.props.addResponse(this.props.match.params.id, comment);
+    this.props.getResponse(this.props.match.params.id, this.props.cur_page);
+  }
 
   render() {
     let { comment, createtime, id, isdelete, movie, oppose, score, support, title, userInfo } = this.props;
@@ -46,9 +57,51 @@ export default class ReviewDetail extends React.Component {
               <button onClick={() => this.handleSupport(id)} className="btn btn-outline-primary my-2 my-sm-0">有用 {support}</button>
               <button onClick={() => this.handleOppose(id)} className="btn btn-outline-danger my-2 my-sm-0">没用 {oppose}</button>
             </div>
-            <CommentItemForReview />
-            <CommentItemForReview />
-            <CommentForReviewInput />
+            {
+              (!this.props.list ? [] : this.props.list).map((el, ind) => (
+                <div className="comment-review" key={ind}>
+                  <img src={el.userInfo.imgurl} className="mr-2" width="24" alt="" />
+                  <span className="nickname">{el.userInfo.nickname}</span>
+                  <span className="create-time">{el.createtime}</span>
+                  <p>{el.comment}</p>
+                </div>
+              ))
+            }
+            <nav className="mt-4">
+              <ul className="pagination justify-content-center">
+                <li className={classnames({
+                  "page-item": true,
+                  "disabled": this.props.cur_page <= 1
+                })} onClick={() => this.handlePage(Math.max(this.props.cur_page - 1, 1))}>
+                  <a className="page-link" href="#" tabIndex="-1">Previous</a>
+                </li>
+                {
+                  [...Array(this.props.total_page).keys()].slice(0, this.props.total_page).map((num, index) => (
+                    <li key={index} className={classnames({
+                      "page-item": true,
+                      "disabled": this.props.cur_page == num + 1
+                    })} onClick={() => this.handlePage(num + 1)}><a className="page-link" href="#">{num + 1}</a></li>
+                  ))
+                }
+                <li className={classnames({
+                  "page-item": true,
+                  "disabled": this.props.cur_page == this.props.total_page
+                })} onClick={() => this.handlePage(Math.min(this.props.cur_page + 1, this.props.total_page))}>
+                  <a className="page-link" href="#">Next</a>
+                </li>
+              </ul>
+            </nav>
+
+
+            <div className="comment-review-input">
+              <input type="text" className="form-control mr-2" placeholder="输入回复的内容" ref="responseInput" />
+              {
+                this.props.logined && <button onClick={() => this.handleResponse(this.refs.responseInput.value)} className="btn btn-outline-info">回复</button> ||
+                <NavLink to="/identity/login" className="btn btn-outline-info">回复</NavLink>
+              }
+            </div>
+
+
           </div>
           <div className="col-md-4 col-sm-12">
             <div className="movie">
