@@ -4,12 +4,25 @@ import logo from '../assets/brand/eggshell.png';
 
 class IdentityNavbar extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            kw: ''
+        };
+    }
+
     componentWillMount() {
         this.props.getUserInfo();
     }
 
-    handleSearch(e) {
+    handleSearch = (e) => {
         e.preventDefault();
+    };
+
+    handleSearchKw = (e) => {
+        this.setState({
+            kw: e.target.value.trim()
+        });
     }
 
     render() {
@@ -52,8 +65,8 @@ class IdentityNavbar extends Component {
                     </button>
                     <div id="navbar-menu" className="collapse navbar-collapse">
                         <form className="form-inline mx-4 d-none d-lg-inline" onSubmit={this.handleSearch}>
-                            <input className="form-control mr-sm-2" type="search" placeholder="Search" />
-                            <button className="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+                            <input className="form-control mr-sm-2" type="search" placeholder="Search" onChange={this.handleSearchKw} />
+                            <NavLink className="btn btn-outline-info my-2 my-sm-0" to={`/search/${this.state.kw}`}>Search</NavLink>
                         </form>
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item">

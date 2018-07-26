@@ -13,7 +13,6 @@ export const fetchGetResponse = (film_review_id, page) => {
       .then(response => response.ok && response.json())
       .then(json => {
         if (!json) return;
-        if (json.code != 1) dispatch(showAlert(json.msg, 2000, "danger"));
         dispatch(getResponse(json.data));
       })
       .catch();

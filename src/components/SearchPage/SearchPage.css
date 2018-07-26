@@ -1,0 +1,8 @@
+.search-page  .movie-list {
+  display: flex;
+  flex-flow: wrap;
+}
+
+.search-page  .movie-list .m-movie-item {
+  margin: 16px;
+}
