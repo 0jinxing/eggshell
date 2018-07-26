@@ -11,3 +11,4 @@ export const review_bast = '/api/review/best';
 export const review_last = '/api/review/latest';
 export const get_label = '/api/tag/label';
 export const get_movie_for_tag = '/api/tag';
+export const response = '/api/respond';
