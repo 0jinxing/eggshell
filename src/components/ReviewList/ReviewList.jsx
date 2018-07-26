@@ -29,7 +29,7 @@ export default class ReviewList extends React.Component {
               }}>Previous</a>
             </li>
             {
-              [...Array(this.props.total_page).keys()].slice(0, this.props.cur_page + 5).map((num, index) => (
+              [...Array(this.props.total_page).keys()].slice(Math.max(this.props.cur_page - 1, this.props.total_page - 5), Math.min(this.props.cur_page + 5, this.props.total_page)).map((num, index) => (
                 <li key={index} onClick={() => this.props.jumpPage(num + 1)} className={classnames({
                   "page-item": true,
                   "disabled": num + 1 == this.props.cur_page

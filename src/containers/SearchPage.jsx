@@ -9,7 +9,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   doSearch: (kw, page) => {
     dispatch(fetchSearch(kw, page));
-  }
+  },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);
+export default connect(mapStateToProps, mapDispatchToProps, undefined, { pure: false })(SearchPage);

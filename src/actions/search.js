@@ -6,7 +6,7 @@ export const getSearchResult = createAction('GET_SEARCH_RESULT', data => data);
 
 export const fetchSearch = (kw, page = 1) => {
   return (dispatch) => {
-    fetch(`${mUrl.search}?name=${kw}&page${page}`)
+    fetch(`${mUrl.search}?name=${kw}&page=${page}`)
       .then(response => response.ok && response.json())
       .then(json => {
         if (!json) return;
