@@ -3,6 +3,7 @@ import "./ratingEditorStart.css";
 
 class RatingEditorStar extends Component {
     constructor(props) {
+        console.log(props);
         super(props);
         this.state = {
             startNum: 0

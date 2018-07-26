@@ -27,6 +27,9 @@
 .scoreboard{
     float: left;
 }
+.scoreboard button:hover{
+    color: white;
+}
 .movie-cover>img{
     width: 135px;
 }
@@ -43,7 +46,7 @@
         display: none;
     }
     .movie-detail-box *{
-        color: #f1f1f1;
+        color: #adcc9e;
     }
 }
 @media screen and (min-width:504px){

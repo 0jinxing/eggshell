@@ -8,6 +8,7 @@ import {Link} from "react-router-dom";
 import LoginForm from "../../LoginForm";
 
 const MovieDetails = ({movieDetails, logined}) => {
+    console.log(movieDetails);
     let bgi = {
         backgroundImage: `url('${movieDetails.imgurl}')`,
         width: "100%",
@@ -31,7 +32,7 @@ const MovieDetails = ({movieDetails, logined}) => {
                         <MovieInfo movieDetails={movieDetails}/>
                     </div>
                     <div className="scoreboard">
-                        <Scoreboard grade={movieDetails.grade}/>
+                        <Scoreboard grade={movieDetails.grade} commentNum={movieDetails.comment_num} scoreDetail = {movieDetails.score_detail}/>
                         <div style={{marginLeft: "10px"}}>
                             <button className="btn btn-outline-primary  mr-2 my-sm-0">
                                 <Link onClick={(e) => {
