@@ -46,11 +46,11 @@
         display: none;
     }
     .movie-detail-box *{
-        color: #f1f1f1;
+        color: #adcc9e;
     }
 }
 @media screen and (min-width:504px){
     .movie-detail-box{
-        background: #bbbbbb !important;
+        background: #ffffff !important;
     }
 }

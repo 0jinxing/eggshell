@@ -16,7 +16,7 @@
 .rating-editor-start .start{
     width: 55px;
     height: 11px;
-    background: url("../../../assets/ic_rating_s.png") no-repeat;
+    background: url("../../assets/ic_rating_s.png") no-repeat;
     cursor: pointer;
     margin: 10px 5px;
 }

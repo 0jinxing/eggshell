@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import RatingEditorStart from "./RatingEditorStar/RatingEditorStar";
+import RatingEditorStart from "../../containers/RatingEditorStar";
 import MovieCard from "./MovieCard/MovieCard";
 import {fetchPostNewReview} from "../../actions/newReview";
 import {showAlert} from "../../actions/alert";

@@ -10,6 +10,7 @@ import reviewDetail from './reviewDetail';
 import review from './review';
 import tag from './tag';
 import response from './response';
+import ratingEditorStart from "./ratingEditorStar";
 
 export default combineReducers({
     identity,
@@ -22,5 +23,6 @@ export default combineReducers({
     reviewDetail,
     review,
     tag,
-    response
+    response,
+    ratingEditorStart
 });
