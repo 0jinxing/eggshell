@@ -1,0 +1,16 @@
+.comment-review-input {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 36px;
+  border-top: 1px solid #eeeeee;
+}
+
+.comment-review-input .form-control {
+  border: 0;
+  outline: 0;
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: 1px solid #cccccc;
+}
+
+

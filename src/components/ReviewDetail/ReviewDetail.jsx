@@ -1,6 +1,8 @@
 import React from 'react';
 import './ReviewDetail.css';
 import Rating from './Rating/Rating';
+import CommentItemForReview from '../CommentForReview/CommentItemForReview';
+import CommentForReviewInput from '../CommentForReview/CommentForReviewInput';
 
 export default class ReviewDetail extends React.Component {
 
@@ -44,6 +46,9 @@ export default class ReviewDetail extends React.Component {
               <button onClick={() => this.handleSupport(id)} className="btn btn-outline-primary my-2 my-sm-0">有用 {support}</button>
               <button onClick={() => this.handleOppose(id)} className="btn btn-outline-danger my-2 my-sm-0">没用 {oppose}</button>
             </div>
+            <CommentItemForReview />
+            <CommentItemForReview />
+            <CommentForReviewInput />
           </div>
           <div className="col-md-4 col-sm-12">
             <div className="movie">
