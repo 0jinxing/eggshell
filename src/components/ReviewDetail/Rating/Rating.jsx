@@ -3,7 +3,7 @@ import './Rating.css';
 
 const Rating = ({ grade = 0 }) => {
     let style = {
-        backgroundPosition: `0 -${Math.round(10 - (grade > 10 ? 10 : grade)) * 11}px`
+        backgroundPosition: `0 -${Math.round(10 - (grade * 2 > 10 ? 10 : grade * 2)) * 11}px`
     };
     return (
         <p className="review-rating">

@@ -43,7 +43,7 @@ export default class ReviewDetail extends React.Component {
           <div className="col-md-8 col-sm-12">
             <h4 className="title">{title}</h4>
             <div className="user-info">
-              <img src="https://img3.doubanio.com/icon/u180957030-2.jpg" width="24" className="avatar" alt="" />
+              <img src={!userInfo ? '' : userInfo.imgurl} width="24" className="avatar" alt="" />
               <a href="#">{!userInfo ? '' : userInfo.nickname}</a>
               <span>评论</span>
               <a href="#">{!movie ? '' : movie.name}</a>
@@ -107,7 +107,9 @@ export default class ReviewDetail extends React.Component {
           </div>
           <div className="col-md-4 col-sm-12">
             <div className="movie">
-              <a href="#">{!movie ? '' : movie.name}</a>
+              <NavLink to={!movie? '.': `/movie/details/${movie.id}`}>
+                {!movie ? '' : movie.name}
+              </NavLink>
               <img src={!movie ? '' : movie.imgurl} width="100" alt="电影封面" />
               <ul>
                 <li><span>导演：</span>{!movie ? '' : movie.director}</li>
